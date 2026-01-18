@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 180 148 92;
+    --color-secondary: 181 187 194;
+    --color-text: 51 51 51;
+    --color-background: 255 255 255;
+    --color-muted: 241 242 239;
+    --color-blush: 226 223 210;
+    --font-body: "Manrope", sans-serif;
+  }
+
+  body {
+    @apply bg-brand-background text-brand-text font-body antialiased;
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-body;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .lux-surface {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(180, 148, 92, 0.12);
+    box-shadow: 0 20px 60px rgba(26, 26, 26, 0.08);
+  }
+
+  .lux-border {
+    border: 1px solid rgba(180, 148, 92, 0.18);
+  }
+
+  .lux-title {
+    @apply text-brand-text tracking-tight;
+  }
+
+  .lux-eyebrow {
+    @apply uppercase text-xs tracking-[0.3em] text-graphite-500;
+  }
+
+  .lux-gradient {
+    background: radial-gradient(circle at 10% 10%, rgba(181, 187, 194, 0.25), transparent 60%),
+      radial-gradient(circle at 90% 20%, rgba(180, 148, 92, 0.15), transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(241, 242, 239, 0.7));
+  }
+
+  .text-brand-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(120deg, #b4945c 0%, #664e4c 40%, #333333 90%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
