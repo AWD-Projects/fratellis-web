@@ -16,7 +16,7 @@ export default function AboutSection() {
           className="display mt-6 max-w-5xl text-[clamp(2.2rem,5vw,4.4rem)] text-graphite-900"
           lines={[
             "Nació como heladería.",
-            <span key="x" className="font-semibold text-brand-accent">Hoy llega a tu evento.</span>,
+            <span key="x" className="font-semibold text-brand-accent">Hoy atiende la mesa completa.</span>,
           ]}
         />
 
@@ -45,8 +45,8 @@ export default function AboutSection() {
             <Reveal>
               <p className="text-lg leading-relaxed text-graphite-700 md:text-xl">
                 Fratelli&apos;s nació en CDMX con una idea clara: hacer helado con la
-                dedicación con la que un chef arma su menú. Hoy esa idea llega a
-                bodas, eventos de empresa, escuelas y celebraciones privadas.
+                dedicación con la que un chef arma su menú. Hoy esa misma dedicación se
+                extiende al café, los postres, las bebidas y las botanas.
               </p>
             </Reveal>
 

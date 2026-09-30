@@ -30,8 +30,7 @@ export default function FlavorsSection() {
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
             <p className="text-lg leading-relaxed text-white/75">
-              Recorre la lista para ver cada envase. Añade los que imaginas y llegan directo a
-              tu cotización.
+              Recorre la lista para ver cada envase y añade a tu barra los que quieras.
             </p>
           </Reveal>
         </div>
@@ -156,7 +155,7 @@ export default function FlavorsSection() {
               Sabores rotativos según la estación
             </h3>
             <p className="mt-3 max-w-md text-[0.95rem] text-white/70">
-              Adaptamos el menú a tu evento y al calendario de la temporada.
+              Cambian con la estación. Te decimos cuáles hay en la fecha de tu evento.
             </p>
           </div>
           <ul className="flex flex-wrap content-start gap-3 lg:col-span-7">

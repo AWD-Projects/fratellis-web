@@ -16,7 +16,7 @@ export default function CateringSection() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <Reveal y={12}>
-              <p className="eyebrow text-brand-accent">Fuente de sodas gourmet</p>
+              <p className="eyebrow text-brand-accent">Servicios</p>
             </Reveal>
             <MaskLines
               className="display mt-6 text-[clamp(2.1rem,4.1vw,3.7rem)] text-graphite-900"
@@ -25,8 +25,8 @@ export default function CateringSection() {
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
             <p className="text-lg leading-relaxed text-graphite-700">
-              Desde una barra de helado hasta una mesa completa de postres, bebidas y botanas:
-              armamos el servicio según tu evento y lo ajustamos contigo en la propuesta.
+              Contrata una sola barra o todo lo que hace falta en la mesa. Nos adaptamos al
+              tamaño y al ritmo de tu celebración.
             </p>
           </Reveal>
         </div>

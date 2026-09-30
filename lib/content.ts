@@ -24,13 +24,12 @@ export const NAV_ITEMS = [
 export const TRUST_POINTS = [
   { title: "Más de una década", description: "sirviendo en eventos." },
   { title: "Equipo propio", description: "capacitado en montaje y servicio." },
-  { title: "Sabores de temporada", description: "que rotan según la estación y tu evento." },
 ] as const;
 
 export const SERVICES = [
   {
     title: "Barra de helado",
-    description: "Sabores clásicos y de temporada, servidos al momento.",
+    description: "Helado servido al momento, con el menú completo de sabores.",
   },
   {
     title: "Soda fountain y café",
@@ -38,7 +37,7 @@ export const SERVICES = [
   },
   {
     title: "Postres y botanas",
-    description: "Para completar la mesa: postres y botanas que acompañan al helado y a las bebidas.",
+    description: "Lo que acompaña al helado y a las bebidas para que nada falte en la mesa.",
   },
   {
     title: "Montaje a medida",
@@ -121,16 +120,11 @@ export const ABOUT_HIGHLIGHTS = [
   {
     title: "Recetas propias",
     description:
-      "Nacimos con la obsesión por el helado auténtico: recetas propias e ingredientes reales.",
+      "Nacimos con la obsesión por el helado auténtico: cada sabor sale de nuestras propias recetas.",
   },
   {
-    title: "Servicio a tu medida",
+    title: "Ingredientes reales",
     description:
-      "Adaptamos el menú, el montaje y el ritmo del servicio a la estética y al horario de tu evento.",
-  },
-  {
-    title: "Lotes pequeños",
-    description:
-      "Cada sabor se elabora en lotes pequeños para preservar textura, aroma y frescura.",
+      "Elegimos ingredientes reales para que lo que se prueba en tu evento sepa igual que en nuestra heladería.",
   },
 ] as const;

@@ -39,8 +39,8 @@ export default function HeroSection() {
 
             <Reveal delay={0.7} y={18}>
               <p className="mt-9 max-w-xl text-[1.05rem] leading-relaxed text-white/80 md:text-lg">
-                Fuente de sodas gourmet para bodas, eventos de empresa, escuelas y celebraciones
-                privadas en CDMX. Helado y café como especialidad, más postres, bebidas y botanas.
+                Fuente de sodas gourmet para eventos en CDMX. Helado y café como especialidad,
+                más postres, bebidas y botanas.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
                 <button onClick={() => scrollToSection("contact")} className="btn-gold">
@@ -85,7 +85,7 @@ export default function HeroSection() {
         </div>
 
         <Reveal delay={0.9} y={12}>
-          <ul className="mt-16 grid gap-px overflow-hidden border-t border-white/15 pt-6 sm:grid-cols-3 md:mt-24">
+          <ul className="mt-16 grid gap-px overflow-hidden border-t border-white/15 pt-6 sm:grid-cols-2 md:mt-24 lg:max-w-3xl">
             {TRUST_POINTS.map((item, i) => (
               <li key={item.title} className="flex items-baseline gap-4 py-2 sm:pr-6">
                 <span className="text-xs font-semibold text-brand-primary">

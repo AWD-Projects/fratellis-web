@@ -92,6 +92,9 @@ export default function ContactSection() {
       invitados: values.invitados ?? "",
       ubicacion: values.ubicacion ?? "",
       mensaje,
+      servicios: services,
+      sabores: flavors,
+      notas: values.notas?.trim() ?? "",
     };
 
     try {
@@ -132,13 +135,13 @@ export default function ContactSection() {
           className="display mt-6 max-w-6xl text-[clamp(2.2rem,4.6vw,4.25rem)] text-graphite-900"
           lines={[
             "Arma tu barra.",
-            <span key="b" className="font-semibold text-brand-accent">Nosotros la servimos.</span>,
+            <span key="b" className="font-semibold text-brand-accent">Te respondemos con una propuesta.</span>,
           ]}
         />
         <Reveal delay={0.1}>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-graphite-700">
-            Elige el tipo de evento, el servicio y los sabores que imaginas. Con eso diseñamos una
-            propuesta personalizada.
+            Elige el tipo de evento, el servicio y los sabores. Con fecha y lugar ya tenemos lo
+            necesario para cotizar.
           </p>
         </Reveal>
 
@@ -211,7 +214,7 @@ export default function ContactSection() {
                 ))}
               </div>
               <p className="mt-3 text-xs text-graphite-500">
-                Es una guía: ajustamos el menú contigo durante la propuesta.
+                Es solo una guía: el menú final lo afinamos juntos.
               </p>
             </fieldset>
 
@@ -394,8 +397,7 @@ export default function ContactSection() {
                 </dl>
 
                 <p className="mt-6 text-xs leading-relaxed text-white/65">
-                  Respondemos en menos de 48 horas hábiles. Aquí no hay precios: los definimos contigo
-                  en la propuesta.
+                  Respondemos en menos de 48 horas hábiles. Aquí no hay precios: se definen según tu evento.
                 </p>
               </div>
 

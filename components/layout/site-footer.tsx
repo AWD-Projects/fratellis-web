@@ -22,7 +22,7 @@ export default function SiteFooter() {
               />
             </div>
             <p className="mt-8 max-w-sm text-[0.95rem] leading-relaxed text-white/75">
-              Fuente de sodas gourmet para eventos en CDMX: helado, café, postres, bebidas y botanas.
+              Atendemos eventos en toda la CDMX y área metropolitana.
             </p>
           </div>
 
@@ -43,16 +43,7 @@ export default function SiteFooter() {
           </nav>
 
           <div className="lg:col-span-3">
-            <h3 className="eyebrow text-brand-primary">Contacto</h3>
-            <ul className="mt-6 space-y-3 text-[0.95rem] text-white/80">
-              <li>
-                <a href={`mailto:${SITE_CONFIG.email}`} className="link-line break-all hover:text-white">
-                  {SITE_CONFIG.email}
-                </a>
-              </li>
-              <li>{SITE_CONFIG.phone}</li>
-              <li>{SITE_CONFIG.address}</li>
-            </ul>
+            <h3 className="eyebrow text-brand-primary">Síguenos</h3>
             <div className="mt-6 flex gap-3">
               <a
                 href={SITE_CONFIG.social.instagram}
@@ -78,7 +69,6 @@ export default function SiteFooter() {
 
         <div className="mt-16 flex flex-col gap-2 border-t border-white/15 pt-6 text-sm text-white/65 md:flex-row md:items-center md:justify-between">
           <span>© 2026 Fratelli&apos;s Helados</span>
-          <span>Fuente de sodas &amp; helados.</span>
           <a
             href="https://www.amoxtli.tech"
             target="_blank"
