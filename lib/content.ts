@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: "Fratelli's Helados",
   description: "Fuente de sodas gourmet para eventos en CDMX: helado, café, postres, bebidas y botanas",
   email: "fratellisheladeria16@gmail.com",
-  phone: "+52 55 1234 5678",
+  phone: "+52 56 1811 9658",
   address: "Ciudad de México, México",
   social: {
     facebook: "https://www.facebook.com/profile.php?id=100063525325496",
