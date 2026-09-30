@@ -8,27 +8,10 @@ import FlavorsSection from "@/components/sections/flavors-section";
 import ClientsSection from "@/components/sections/clients-section";
 import GallerySection from "@/components/sections/gallery-section";
 import { BarProvider } from "@/components/bar-provider";
-import { SITE_CONFIG } from "@/lib/content";
+import { buildStructuredData } from "@/lib/seo";
 
 export default function Home() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Catering",
-    name: SITE_CONFIG.name,
-    description: SITE_CONFIG.description,
-    image: "https://fratellishelados.com/images/hero/hero.png",
-    logo: "https://fratellishelados.com/images/brand/logo.png",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Ciudad de México",
-      addressCountry: "MX",
-    },
-    areaServed: "Ciudad de México",
-    telephone: SITE_CONFIG.phone,
-    email: SITE_CONFIG.email,
-    url: "https://fratellishelados.com",
-    sameAs: [SITE_CONFIG.social.facebook, SITE_CONFIG.social.instagram],
-  };
+  const structuredData = buildStructuredData();
 
   return (
     <BarProvider>

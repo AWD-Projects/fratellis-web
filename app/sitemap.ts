@@ -1,13 +1,12 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://fratellishelados.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fratellishelados.com";
 
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: baseUrl,
+      url: SITE_URL,
       lastModified: new Date(),
-      changeFrequency: "monthly",
       priority: 1,
     },
   ];

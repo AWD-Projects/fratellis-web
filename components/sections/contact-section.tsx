@@ -405,7 +405,9 @@ export default function ContactSection() {
                 <p className="eyebrow text-brand-accent">Contacto directo</p>
                 <p className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-brand-accent" />
-                  {SITE_CONFIG.phone}
+                  <a href={`tel:${SITE_CONFIG.phone.replace(/[^\d+]/g, "")}`} className="link-line">
+                    {SITE_CONFIG.phone}
+                  </a>
                 </p>
                 <p className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-brand-accent" />
