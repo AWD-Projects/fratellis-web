@@ -21,11 +21,6 @@ export const NAV_ITEMS = [
   { name: "Contacto", href: "contact" },
 ] as const;
 
-export const TRUST_POINTS = [
-  { title: "Más de una década", description: "sirviendo en eventos." },
-  { title: "Equipo propio", description: "capacitado en montaje y servicio." },
-] as const;
-
 export const SERVICES = [
   {
     title: "Barra de helado",

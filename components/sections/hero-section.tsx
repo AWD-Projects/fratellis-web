@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
-import { TRUST_POINTS } from "@/lib/content";
 import { MaskLines, Reveal } from "@/components/ui/motion";
 
 export default function HeroSection() {
@@ -83,21 +82,6 @@ export default function HeroSection() {
             </motion.div>
           </div>
         </div>
-
-        <Reveal delay={0.9} y={12}>
-          <ul className="mt-16 grid gap-px overflow-hidden border-t border-white/15 pt-6 sm:grid-cols-2 md:mt-24 lg:max-w-3xl">
-            {TRUST_POINTS.map((item, i) => (
-              <li key={item.title} className="flex items-baseline gap-4 py-2 sm:pr-6">
-                <span className="text-xs font-semibold text-brand-primary">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-sm leading-relaxed text-white/75">
-                  <span className="font-semibold text-white">{item.title}</span> {item.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
       </div>
     </section>
   );
