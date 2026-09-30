@@ -130,10 +130,7 @@ export default function FlavorsSection() {
                     exit={reduce ? undefined : { opacity: 0, y: -8 }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <p className="eyebrow text-brand-primary">
-                      Sabor {String(index + 1).padStart(2, "0")} / {String(FLAVOR_HIGHLIGHTS.length).padStart(2, "0")}
-                    </p>
-                    <h3 className="mt-4 text-4xl font-light tracking-tight md:text-5xl">{flavor.name}</h3>
+                    <h3 className="text-4xl font-light tracking-tight md:text-5xl">{flavor.name}</h3>
                     <p className="mt-4 text-lg text-white/75">{flavor.description}</p>
                   </motion.div>
                 </AnimatePresence>

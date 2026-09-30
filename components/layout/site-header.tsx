@@ -67,12 +67,12 @@ export default function SiteHeader() {
             className="flex items-center gap-3 text-white"
             aria-label="Fratelli's Helados, ir al inicio"
           >
-            <span className="relative block h-11 w-11">
+            <span className="relative block h-14 w-14 sm:h-16 sm:w-16">
               <Image
                 src="/images/brand/logo.png"
                 alt=""
                 fill
-                sizes="44px"
+                sizes="64px"
                 className="object-contain"
                 priority
               />
