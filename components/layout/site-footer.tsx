@@ -21,7 +21,7 @@ export default function SiteFooter() {
               />
             </div>
             <p className="mt-8 max-w-sm text-[0.95rem] leading-relaxed text-white/75">
-              Helado artesanal y sodas italianas en food truck, para eventos en CDMX.
+              Fuente de sodas gourmet en food truck, para eventos en CDMX.
             </p>
           </div>
 

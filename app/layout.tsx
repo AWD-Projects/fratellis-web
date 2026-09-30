@@ -15,14 +15,16 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fratellishelados.com"),
-  title: "Fratelli's Helados | Helado artesanal y sodas italianas para eventos en CDMX",
+  title: "Fratelli's Helados | Fuente de sodas gourmet para eventos en CDMX",
   description:
-    "Food truck de helado artesanal y sodas italianas para bodas, eventos de empresa y fiestas privadas en CDMX. Más de una década de experiencia. Cotiza tu evento.",
+    "Fuente de sodas gourmet en food truck para bodas, eventos de empresa y fiestas privadas en CDMX: helado, café, postres, bebidas y botanas. Más de una década de experiencia. Cotiza tu evento.",
   keywords: [
     "helado artesanal",
     "catering de helados",
     "food truck CDMX",
     "sodas italianas",
+    "fuente de sodas gourmet",
+    "postres y botanas para eventos",
     "eventos corporativos",
     "Fratelli's Helados",
   ],
@@ -31,18 +33,18 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Fratelli's Helados | Helado artesanal y sodas italianas para eventos en CDMX",
+    title: "Fratelli's Helados | Fuente de sodas gourmet para eventos en CDMX",
     description:
-      "Barra de helado y soda fountain en un food truck negro y dorado, con equipo propio, para tu evento en CDMX.",
+      "Helado, café, postres, bebidas y botanas en un food truck negro y dorado, con equipo propio, para tu evento en CDMX.",
     type: "website",
     locale: "es_MX",
     images: ["/images/hero/hero.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fratelli's Helados | Helado artesanal y sodas italianas para eventos en CDMX",
+    title: "Fratelli's Helados | Fuente de sodas gourmet para eventos en CDMX",
     description:
-      "Barra de helado y soda fountain en food truck para bodas, empresas y fiestas privadas en CDMX.",
+      "Fuente de sodas gourmet en food truck para bodas, empresas y fiestas privadas en CDMX.",
     images: ["/images/hero/hero.png"],
   },
 };

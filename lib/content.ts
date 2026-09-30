@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "Fratelli's Helados",
-  description: "Catering de helado artesanal y sodas italianas en food truck para eventos en CDMX",
+  description: "Fuente de sodas gourmet en food truck: helado, café, postres, bebidas y botanas para eventos en CDMX",
   email: "fratellisheladeria16@gmail.com",
   phone: "+52 55 1234 5678",
   address: "Ciudad de México, México",
@@ -23,7 +23,7 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const TRUST_POINTS = [
-  { title: "Más de una década", description: "sirviendo helado y sodas en eventos." },
+  { title: "Más de una década", description: "sirviendo en eventos." },
   { title: "Equipo propio", description: "capacitado en montaje y servicio." },
   { title: "Sabores de temporada", description: "que rotan según la estación y tu evento." },
 ] as const;
@@ -34,8 +34,12 @@ export const SERVICES = [
     description: "Sabores clásicos y de temporada, servidos al momento.",
   },
   {
-    title: "Soda fountain",
-    description: "Sodas italianas, frappés y bebidas a tu gusto, con mixología sin alcohol.",
+    title: "Soda fountain y café",
+    description: "Sodas italianas, frappés, café y bebidas a tu gusto, con mixología sin alcohol.",
+  },
+  {
+    title: "Postres y botanas",
+    description: "Para completar la mesa: postres y botanas que acompañan al helado y a las bebidas.",
   },
   {
     title: "Montaje a medida",

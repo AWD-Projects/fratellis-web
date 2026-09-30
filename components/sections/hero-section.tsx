@@ -32,16 +32,16 @@ export default function HeroSection() {
               delay={0.15}
               className="display mt-7 text-[clamp(2.7rem,4.7vw,4.2rem)]"
               lines={[
-                "Helado artesanal",
-                <span key="s" className="font-semibold text-brand-primary">y sodas italianas</span>,
-                "en tu evento.",
+                "Que a tu evento",
+                <span key="s" className="font-semibold text-brand-primary">no le falte nada.</span>,
               ]}
             />
 
             <Reveal delay={0.7} y={18}>
               <p className="mt-9 max-w-xl text-[1.05rem] leading-relaxed text-white/80 md:text-lg">
-                Un food truck negro y dorado que llega a bodas, eventos de empresa y fiestas
-                privadas en CDMX, con barra de helado, soda fountain y equipo propio.
+                Fuente de sodas gourmet en un food truck negro y dorado. Helado y café como
+                especialidad, más postres, bebidas y botanas para bodas, eventos de empresa y
+                fiestas privadas en CDMX.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
                 <button onClick={() => scrollToSection("contact")} className="btn-gold">
