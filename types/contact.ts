@@ -15,4 +15,6 @@ export interface ContactFormData {
 export interface ApiResponse {
   success: boolean;
   message: string;
+  code?: string;
+  detail?: string;
 }

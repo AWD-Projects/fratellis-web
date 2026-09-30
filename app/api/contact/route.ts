@@ -3,7 +3,22 @@ import { Resend } from "resend";
 import { buildQuoteEmail } from "@/lib/email-template";
 import type { ContactFormData, ApiResponse } from "@/types/contact";
 
-const resend = new Resend(process.env.RESEND_API_KEY || "re_missing");
+// Limpia espacios y comillas que suelen colarse al pegar variables en Vercel
+const env = (name: string) => (process.env[name] ?? "").trim().replace(/^["']|["']$/g, "");
+
+const DEBUG = env("CONTACT_DEBUG") === "1";
+const GENERIC_ERROR = "Error al enviar el mensaje. Por favor intenta de nuevo.";
+
+const fail = (status: number, code: string, detail?: string) =>
+  NextResponse.json(
+    {
+      success: false,
+      message: GENERIC_ERROR,
+      code,
+      ...(DEBUG && detail ? { detail } : {}),
+    },
+    { status }
+  );
 
 export async function POST(request: NextRequest) {
   try {
@@ -36,20 +51,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!process.env.RESEND_API_KEY) {
-      console.error("RESEND_API_KEY not configured");
-      return NextResponse.json(
-        { success: false, message: "Error de configuración del servidor" } as ApiResponse,
-        { status: 500 }
-      );
+    const apiKey = env("RESEND_API_KEY");
+    if (!apiKey) {
+      console.error("[contact] RESEND_API_KEY no está definida en este entorno");
+      return fail(500, "missing_api_key", "RESEND_API_KEY no está definida en este entorno de Vercel");
     }
+    const resend = new Resend(apiKey);
 
     const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://fratellishelados.com").replace(/\/$/, "");
     const { subject, html, text } = buildQuoteEmail(body, siteUrl);
 
     const { error } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL || "Fratelli's Helados <onboarding@resend.dev>",
-      to: [process.env.CONTACT_EMAIL || "fratellisheladeria16@gmail.com"],
+      from: env("RESEND_FROM_EMAIL") || "Fratelli's Helados <onboarding@resend.dev>",
+      to: [env("CONTACT_EMAIL") || "fratellisheladeria16@gmail.com"],
       replyTo: correo,
       subject,
       html,
@@ -57,11 +71,8 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json(
-        { success: false, message: "Error al enviar el mensaje. Por favor intenta de nuevo." } as ApiResponse,
-        { status: 502 }
-      );
+      console.error("[contact] Resend rechazó el envío:", JSON.stringify(error));
+      return fail(502, error.name || "resend_error", error.message);
     }
 
     return NextResponse.json(
@@ -69,10 +80,7 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error sending email:", error);
-    return NextResponse.json(
-      { success: false, message: "Error al enviar el mensaje. Por favor intenta de nuevo." } as ApiResponse,
-      { status: 500 }
-    );
+    console.error("[contact] Error inesperado:", error);
+    return fail(500, "unexpected_error", error instanceof Error ? error.message : String(error));
   }
 }
