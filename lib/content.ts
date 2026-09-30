@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "Fratelli's Helados",
-  description: "Fuente de sodas gourmet en food truck: helado, café, postres, bebidas y botanas para eventos en CDMX",
+  description: "Fuente de sodas gourmet para eventos en CDMX: helado, café, postres, bebidas y botanas",
   email: "fratellisheladeria16@gmail.com",
   phone: "+52 55 1234 5678",
   address: "Ciudad de México, México",
@@ -13,11 +13,10 @@ export const SITE_CONFIG = {
 
 export const NAV_ITEMS = [
   { name: "Inicio", href: "hero" },
-  { name: "Nosotros", href: "about" },
-  { name: "Catering", href: "catering" },
+  { name: "Servicios", href: "catering" },
   { name: "Sabores", href: "flavors" },
-  { name: "Food Truck", href: "truck" },
-  { name: "Testimonios", href: "testimonials" },
+  { name: "Clientes", href: "clients" },
+  { name: "Nosotros", href: "about" },
   { name: "Galería", href: "gallery" },
   { name: "Contacto", href: "contact" },
 ] as const;
@@ -50,6 +49,7 @@ export const SERVICES = [
 export const EVENT_TYPES = [
   "Bodas boutique y bodas destino",
   "Eventos corporativos y lanzamientos",
+  "Eventos escolares e institucionales",
   "Cumpleaños y celebraciones privadas",
   "Activaciones de marca y eventos VIP",
 ] as const;
@@ -100,6 +100,15 @@ export const SEASONAL_FLAVORS = [
   "Rompope",
 ] as const;
 
+export const CLIENTS = [
+  "American School Foundation",
+  "Tec de Monterrey, campus CDMX",
+  "Colegio Madrid CDMX",
+  "KBR",
+  "Skusa México",
+  "Foro Pegaso",
+] as const;
+
 export const TESTIMONIALS = [
   {
     quote:
@@ -124,9 +133,9 @@ export const TESTIMONIALS = [
 export const GALLERY_IMAGES = [
   { src: "/images/gallery/event-01.jpeg", alt: "Tres bebidas de la soda fountain de Fratelli's frente al logotipo dorado" },
   { src: "/images/gallery/event-02.jpg", alt: "Bola de helado de fresa en vaso Fratelli's con un arcoíris al fondo" },
-  { src: "/images/gallery/event-03.jpg", alt: "Equipo de Fratelli's sirviendo dentro del food truck" },
+  { src: "/images/gallery/event-03.jpg", alt: "Equipo de Fratelli's sirviendo durante un evento" },
   { src: "/images/gallery/event-04.jpg", alt: "Helado de menta en vaso Fratelli's durante un evento" },
-  { src: "/images/gallery/event-05.jpg", alt: "Costado del food truck con el logotipo dorado en un evento" },
+  { src: "/images/gallery/event-05.jpg", alt: "Logotipo dorado de Fratelli's en el equipo de servicio durante un evento" },
   { src: "/images/gallery/event-06.jpeg", alt: "Cono de helado de fresa frente al logotipo de Fratelli's" },
 ] as const;
 
@@ -137,9 +146,9 @@ export const ABOUT_HIGHLIGHTS = [
       "Nacimos con la obsesión por el helado auténtico: recetas propias e ingredientes reales.",
   },
   {
-    title: "Un truck que se integra",
+    title: "Servicio a tu medida",
     description:
-      "Nuestro food truck es móvil y está pensado para integrarse con la estética de tu evento.",
+      "Adaptamos el menú, el montaje y el ritmo del servicio a la estética y al horario de tu evento.",
   },
   {
     title: "Lotes pequeños",

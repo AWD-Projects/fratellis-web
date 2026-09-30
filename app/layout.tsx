@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fratellishelados.com"),
   title: "Fratelli's Helados | Fuente de sodas gourmet para eventos en CDMX",
   description:
-    "Fuente de sodas gourmet en food truck para bodas, eventos de empresa y fiestas privadas en CDMX: helado, café, postres, bebidas y botanas. Más de una década de experiencia. Cotiza tu evento.",
+    "Fuente de sodas gourmet para bodas, eventos de empresa, eventos escolares y celebraciones privadas en CDMX: helado, café, postres, bebidas y botanas. Más de una década de experiencia. Cotiza tu evento.",
   keywords: [
     "helado artesanal",
     "catering de helados",
-    "food truck CDMX",
+    "catering para eventos CDMX",
     "sodas italianas",
     "fuente de sodas gourmet",
     "postres y botanas para eventos",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fratelli's Helados | Fuente de sodas gourmet para eventos en CDMX",
     description:
-      "Helado, café, postres, bebidas y botanas en un food truck negro y dorado, con equipo propio, para tu evento en CDMX.",
+      "Helado, café, postres, bebidas y botanas para tu evento en CDMX, con equipo propio y cotización a tu medida.",
     type: "website",
     locale: "es_MX",
     images: ["/images/hero/hero.png"],
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fratelli's Helados | Fuente de sodas gourmet para eventos en CDMX",
     description:
-      "Fuente de sodas gourmet en food truck para bodas, empresas y fiestas privadas en CDMX.",
+      "Fuente de sodas gourmet para bodas, empresas, escuelas y fiestas privadas en CDMX.",
     images: ["/images/hero/hero.png"],
   },
 };

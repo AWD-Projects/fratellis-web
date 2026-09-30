@@ -21,7 +21,7 @@ export default function SiteFooter() {
               />
             </div>
             <p className="mt-8 max-w-sm text-[0.95rem] leading-relaxed text-white/75">
-              Fuente de sodas gourmet en food truck, para eventos en CDMX.
+              Fuente de sodas gourmet para eventos en CDMX: helado, café, postres, bebidas y botanas.
             </p>
           </div>
 

@@ -5,8 +5,7 @@ import CateringSection from "@/components/sections/catering-section";
 import AboutSection from "@/components/sections/about-section";
 import ContactSection from "@/components/sections/contact-section";
 import FlavorsSection from "@/components/sections/flavors-section";
-import TruckSection from "@/components/sections/truck-section";
-import TestimonialsSection from "@/components/sections/testimonials-section";
+import ClientsSection from "@/components/sections/clients-section";
 import GallerySection from "@/components/sections/gallery-section";
 import { BarProvider } from "@/components/bar-provider";
 import { SITE_CONFIG } from "@/lib/content";
@@ -42,11 +41,10 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <HeroSection />
-        <AboutSection />
         <CateringSection />
         <FlavorsSection />
-        <TruckSection />
-        <TestimonialsSection />
+        <ClientsSection />
+        <AboutSection />
         <GallerySection />
         <ContactSection />
       </main>

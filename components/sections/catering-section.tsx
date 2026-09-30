@@ -31,7 +31,7 @@ export default function CateringSection() {
           </Reveal>
         </div>
 
-        {/* Servicios + truck */}
+        {/* Servicios + producto */}
         <div className="mt-16 grid gap-14 md:mt-24 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
             <ul className="border-t border-graphite-900/20">
@@ -97,7 +97,7 @@ export default function CateringSection() {
               <div className="arch relative aspect-[4/5] bg-brand-blush">
                 <Image
                   src="/images/catering/food-truck.png"
-                  alt="Food truck negro de Fratelli's con el logotipo dorado"
+                  alt="Food truck de Fratelli's"
                   fill
                   sizes="(max-width: 1024px) 90vw, 40vw"
                   className="object-contain object-bottom px-6 pb-10 pt-16"
@@ -114,13 +114,13 @@ export default function CateringSection() {
               <div className="relative mx-auto aspect-[4/5] max-w-[300px] lg:mx-0">
                 <div className="arch relative h-full w-full bg-brand-blush">
                   <Image
-                    src="/images/events/event-private.jpg"
-                    alt="Globos de colores en una celebración privada"
+                    src="/images/truck/truck-experience.jpg"
+                    alt="Food truck de Fratelli's atendiendo en un evento al aire libre"
                     fill
                     sizes="(max-width: 1024px) 60vw, 25vw"
-                    className="object-cover"
+                    className="object-cover object-[28%_50%]"
                   />
-                  <div aria-hidden className="absolute inset-0 bg-brand-primary/25 mix-blend-multiply" />
+                  <div aria-hidden className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply" />
                 </div>
               </div>
             </Reveal>

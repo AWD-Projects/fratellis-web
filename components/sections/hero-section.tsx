@@ -39,19 +39,18 @@ export default function HeroSection() {
 
             <Reveal delay={0.7} y={18}>
               <p className="mt-9 max-w-xl text-[1.05rem] leading-relaxed text-white/80 md:text-lg">
-                Fuente de sodas gourmet en un food truck negro y dorado. Helado y café como
-                especialidad, más postres, bebidas y botanas para bodas, eventos de empresa y
-                fiestas privadas en CDMX.
+                Fuente de sodas gourmet para bodas, eventos de empresa, escuelas y celebraciones
+                privadas en CDMX. Helado y café como especialidad, más postres, bebidas y botanas.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
                 <button onClick={() => scrollToSection("contact")} className="btn-gold">
                   Cotiza tu evento
                 </button>
                 <button
-                  onClick={() => scrollToSection("flavors")}
+                  onClick={() => scrollToSection("catering")}
                   className="link-line inline-flex items-center gap-2 py-1 text-sm font-semibold tracking-wide text-white"
                 >
-                  Ver sabores
+                  Ver servicios
                   <ArrowDownRight className="h-4 w-4 text-brand-primary" />
                 </button>
               </div>

@@ -31,7 +31,7 @@ export default function AboutSection() {
               <div className="arch relative aspect-[4/5] bg-brand-muted">
                 <Image
                   src="/images/about/about-team.jpg"
-                  alt="Integrante de Fratelli's junto al food truck con un cono de helado"
+                  alt="Integrante del equipo de Fratelli's con un cono de helado"
                   fill
                   sizes="(max-width: 1024px) 90vw, 40vw"
                   className="object-cover object-[72%_50%]"
@@ -45,8 +45,8 @@ export default function AboutSection() {
             <Reveal>
               <p className="text-lg leading-relaxed text-graphite-700 md:text-xl">
                 Fratelli&apos;s nació en CDMX con una idea clara: hacer helado con la
-                dedicación con la que un chef arma su menú. Hoy esa idea viaja en un food truck
-                y sirve en bodas, eventos de empresa y celebraciones privadas.
+                dedicación con la que un chef arma su menú. Hoy esa idea llega a
+                bodas, eventos de empresa, escuelas y celebraciones privadas.
               </p>
             </Reveal>
 

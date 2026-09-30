@@ -68,7 +68,7 @@ export default function GallerySection() {
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
             <p className="text-lg leading-relaxed text-white/75">
-              Vasos, conos, sodas y el truck en pleno servicio.
+              Vasos, conos y sodas en pleno servicio.
             </p>
           </Reveal>
         </div>
