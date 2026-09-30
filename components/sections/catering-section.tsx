@@ -25,8 +25,8 @@ export default function CateringSection() {
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
             <p className="text-lg leading-relaxed text-graphite-700">
-              Contrata una sola barra o todo lo que hace falta en la mesa. Nos adaptamos al
-              tamaño y al ritmo de tu celebración.
+              Contrata solo la barra de helado o el servicio completo. Nos adaptamos al tamaño
+              y al ritmo de tu celebración.
             </p>
           </Reveal>
         </div>

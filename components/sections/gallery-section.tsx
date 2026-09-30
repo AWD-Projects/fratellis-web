@@ -63,7 +63,7 @@ export default function GallerySection() {
             </Reveal>
             <MaskLines
               className="display mt-6 text-[clamp(2.1rem,4.1vw,3.7rem)]"
-              lines={["Así se ve", "en los eventos."]}
+              lines={["Fratelli's", "en eventos."]}
             />
           </div>
         </div>

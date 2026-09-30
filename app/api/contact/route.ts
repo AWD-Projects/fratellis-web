@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: true, message: "¡Gracias! Tu mensaje se ha enviado con éxito." } as ApiResponse,
+      { success: true, message: "¡Gracias! Recibimos tu solicitud y te respondemos en menos de 48 horas hábiles." } as ApiResponse,
       { status: 200 }
     );
   } catch (error) {

@@ -37,16 +37,16 @@ export const SERVICES = [
   },
   {
     title: "Postres y botanas",
-    description: "Lo que acompaña al helado y a las bebidas para que nada falte en la mesa.",
+    description: "Para acompañar el helado y las bebidas: opciones dulces y saladas para tu menú.",
   },
   {
     title: "Montaje a medida",
-    description: "Montaje discreto que respeta la estética de tu evento, con branding sutil y atención durante todo el servicio.",
+    description: "Adaptamos la barra a la decoración y al espacio de tu evento, con detalles de marca discretos.",
   },
 ] as const;
 
 export const EVENT_TYPES = [
-  "Bodas boutique y bodas destino",
+  "Bodas boutique y de destino",
   "Eventos corporativos y lanzamientos",
   "Eventos escolares e institucionales",
   "Cumpleaños y celebraciones privadas",

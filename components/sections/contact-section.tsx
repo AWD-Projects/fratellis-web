@@ -327,7 +327,7 @@ export default function ContactSection() {
                   </>
                 ) : (
                   <>
-                    Enviar solicitud
+                    Pedir mi cotización
                     <Send className="h-4 w-4" />
                   </>
                 )}
@@ -397,7 +397,7 @@ export default function ContactSection() {
                 </dl>
 
                 <p className="mt-6 text-xs leading-relaxed text-white/65">
-                  Respondemos en menos de 48 horas hábiles. Aquí no hay precios: se definen según tu evento.
+                  Respondemos en menos de 48 horas hábiles. El precio se define según tu evento.
                 </p>
               </div>
 

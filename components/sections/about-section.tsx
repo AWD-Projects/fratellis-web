@@ -44,7 +44,7 @@ export default function AboutSection() {
           <div className="lg:col-span-6 lg:col-start-7">
             <Reveal>
               <p className="text-lg leading-relaxed text-graphite-700 md:text-xl">
-                Fratelli&apos;s nació en CDMX con una idea clara: hacer helado con la
+                Empezamos en CDMX con una idea clara: hacer helado con la
                 dedicación con la que un chef arma su menú. Hoy esa misma dedicación se
                 extiende al café, los postres, las bebidas y las botanas.
               </p>

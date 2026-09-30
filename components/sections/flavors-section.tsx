@@ -155,7 +155,7 @@ export default function FlavorsSection() {
               Sabores rotativos según la estación
             </h3>
             <p className="mt-3 max-w-md text-[0.95rem] text-white/70">
-              Cambian con la estación. Te decimos cuáles hay en la fecha de tu evento.
+              Van cambiando durante el año. Te decimos cuáles hay en la fecha de tu evento.
             </p>
           </div>
           <ul className="flex flex-wrap content-start gap-3 lg:col-span-7">

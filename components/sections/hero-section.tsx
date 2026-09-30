@@ -39,8 +39,8 @@ export default function HeroSection() {
 
             <Reveal delay={0.7} y={18}>
               <p className="mt-9 max-w-xl text-[1.05rem] leading-relaxed text-white/80 md:text-lg">
-                Fuente de sodas gourmet para eventos en CDMX. Helado y café como especialidad,
-                más postres, bebidas y botanas.
+                Fuente de sodas gourmet para eventos en CDMX. Helado y café de base, con
+                postres, bebidas y botanas para completar el menú.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
                 <button onClick={() => scrollToSection("contact")} className="btn-gold">
