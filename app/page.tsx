@@ -8,6 +8,7 @@ import FlavorsSection from "@/components/sections/flavors-section";
 import TruckSection from "@/components/sections/truck-section";
 import TestimonialsSection from "@/components/sections/testimonials-section";
 import GallerySection from "@/components/sections/gallery-section";
+import { BarProvider } from "@/components/bar-provider";
 import { SITE_CONFIG } from "@/lib/content";
 
 export default function Home() {
@@ -16,11 +17,14 @@ export default function Home() {
     "@type": "Catering",
     name: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
+    image: "https://fratellishelados.com/images/hero/hero.png",
+    logo: "https://fratellishelados.com/images/brand/logo.png",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Ciudad de México",
       addressCountry: "MX",
     },
+    areaServed: "Ciudad de México",
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
     url: "https://fratellishelados.com",
@@ -28,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <BarProvider>
       <header>
         <SiteHeader />
       </header>
@@ -47,7 +51,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <SiteFooter />
-    </>
+    </BarProvider>
   );
 }
 

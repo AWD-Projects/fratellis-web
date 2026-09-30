@@ -13,54 +13,121 @@
     --font-body: "Manrope", sans-serif;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-brand-background text-brand-text font-body antialiased;
     min-height: 100vh;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 96px;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
     @apply font-body;
   }
+
+  ::selection {
+    background: #b4945c;
+    color: #1a1a1a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #b4945c;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  /* Una sola escala vertical para todas las secciones */
+  .section-y {
+    @apply py-16 sm:py-24 md:py-40;
   }
 
-  .lux-surface {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(180, 148, 92, 0.12);
-    box-shadow: 0 20px 60px rgba(26, 26, 26, 0.08);
+  /* Contenedor único: todo se alinea a la misma retícula */
+  .wrap {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12;
   }
 
-  .lux-border {
-    border: 1px solid rgba(180, 148, 92, 0.18);
+  .eyebrow {
+    @apply text-[0.72rem] font-semibold uppercase tracking-[0.28em];
   }
 
-  .lux-title {
-    @apply text-brand-text tracking-tight;
+  .display {
+    @apply font-extralight tracking-display leading-[1.02];
   }
 
-  .lux-eyebrow {
-    @apply uppercase text-xs tracking-[0.3em] text-graphite-500;
+  /* Marco en arco: eco del remolino del logo y del techo redondeado del truck */
+  .arch {
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+    overflow: hidden;
   }
 
-  .lux-gradient {
-    background: radial-gradient(circle at 10% 10%, rgba(181, 187, 194, 0.25), transparent 60%),
-      radial-gradient(circle at 90% 20%, rgba(180, 148, 92, 0.15), transparent 50%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(241, 242, 239, 0.7));
+  /* Grano sutil para las superficies oscuras */
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.09;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .text-brand-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(120deg, #b4945c 0%, #664e4c 40%, #333333 90%);
+  /* Botones */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-300;
+  }
+  .btn-gold {
+    @apply btn bg-brand-primary text-graphite-900 hover:bg-white;
+  }
+  .btn-gold-on-light {
+    @apply btn bg-graphite-900 text-white hover:bg-brand-accent;
+  }
+  .btn-line-dark {
+    @apply btn border border-white/30 text-white hover:border-brand-primary hover:text-brand-primary;
+  }
+  .btn-line-light {
+    @apply btn border border-graphite-900/25 text-graphite-900 hover:border-graphite-900 hover:bg-graphite-900 hover:text-white;
+  }
+
+  /* Enlace con subrayado que se dibuja */
+  .link-line {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-line:hover,
+  .link-line:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Chips seleccionables del cotizador */
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-graphite-900/20 bg-white px-4 py-2.5 text-sm text-graphite-800 transition-colors duration-200 hover:border-graphite-900;
+  }
+  .chip[aria-pressed="true"],
+  .chip[aria-checked="true"] {
+    @apply border-graphite-900 bg-graphite-900 text-white;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-graphite-900/20 bg-white px-4 py-3.5 text-[0.95rem] text-graphite-900 outline-none transition-colors placeholder:text-graphite-400 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/40;
   }
 }
 

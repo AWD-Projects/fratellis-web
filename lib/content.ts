@@ -55,31 +55,37 @@ export const FLAVOR_HIGHLIGHTS = [
     name: "Chocolate oscuro",
     description: "Cacao intenso con final sedoso.",
     image: "/images/flavors/chocolate.png",
+    tint: "#4A3A36",
   },
   {
     name: "Vainilla",
     description: "Aromática y elegante.",
     image: "/images/flavors/vainilla.png",
+    tint: "#817D6E",
   },
   {
     name: "Fresa",
     description: "Fruta fresca, textura cremosa.",
     image: "/images/flavors/fresa.png",
+    tint: "#7D6D70",
   },
   {
     name: "Café de especialidad",
     description: "Notas tostadas y cuerpo suave.",
     image: "/images/flavors/cafe.png",
+    tint: "#736A5B",
   },
   {
     name: "Limón",
     description: "Refrescante y vibrante.",
     image: "/images/flavors/limon.png",
+    tint: "#617140",
   },
   {
     name: "Nuez",
     description: "Textura crujiente y cremosa.",
     image: "/images/flavors/nuez.png",
+    tint: "#80786E",
   },
 ] as const;
 
@@ -112,12 +118,12 @@ export const TESTIMONIALS = [
 ] as const;
 
 export const GALLERY_IMAGES = [
-  { src: "/images/gallery/event-01.jpeg", alt: "Servicio en boda elegante" },
-  { src: "/images/gallery/event-02.jpg", alt: "Helados artesanales en barra" },
-  { src: "/images/gallery/event-03.jpg", alt: "Food truck en evento nocturno" },
-  { src: "/images/gallery/event-04.jpg", alt: "Catering premium para invitados" },
-  { src: "/images/gallery/event-05.jpg", alt: "Estación de sodas italianas" },
-  { src: "/images/gallery/event-06.jpeg", alt: "Experiencia en evento corporativo" },
+  { src: "/images/gallery/event-01.jpeg", alt: "Tres bebidas de la soda fountain de Fratelli's frente al logotipo dorado" },
+  { src: "/images/gallery/event-02.jpg", alt: "Bola de helado de fresa en vaso Fratelli's con un arcoíris al fondo" },
+  { src: "/images/gallery/event-03.jpg", alt: "Equipo de Fratelli's sirviendo dentro del food truck" },
+  { src: "/images/gallery/event-04.jpg", alt: "Helado de menta en vaso Fratelli's durante un evento" },
+  { src: "/images/gallery/event-05.jpg", alt: "Costado del food truck con el logotipo dorado en un evento" },
+  { src: "/images/gallery/event-06.jpeg", alt: "Cono de helado de fresa frente al logotipo de Fratelli's" },
 ] as const;
 
 export const ABOUT_HIGHLIGHTS = [

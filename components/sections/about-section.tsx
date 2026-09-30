@@ -1,59 +1,76 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { ABOUT_HIGHLIGHTS } from "@/lib/content";
+import { MaskLines, Reveal } from "@/components/ui/motion";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-32 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <p className="lux-eyebrow">Sobre Fratelli&apos;s</p>
-              <h2 className="text-4xl md:text-5xl font-semibold lux-title">
-                Una heladería artesanal convertida en experiencia de catering.
-              </h2>
-              <p className="text-lg text-graphite-600">
-                Fratelli&apos;s nació en CDMX con una visión clara: crear helados
-                artesanales con la misma dedicación que un chef dedica a su menú.
-                Hoy llevamos esa pasión a eventos exclusivos con un food truck elegante,
-                servicio impecable y sabores que se recuerdan.
-              </p>
-              <div className="grid gap-5 pt-4">
-                {ABOUT_HIGHLIGHTS.map((item) => (
-                  <div key={item.title} className="lux-border rounded-2xl p-4 bg-white">
-                    <h3 className="text-lg font-semibold text-brand-primary">{item.title}</h3>
-                    <p className="text-sm text-graphite-600 mt-2">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+    <section id="about" className="section-y bg-brand-background">
+      <div className="wrap">
+        <Reveal y={12}>
+          <p className="eyebrow text-brand-accent">Sobre Fratelli&apos;s</p>
+        </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="lux-surface rounded-[36px] p-4">
-                <div className="relative h-[420px] md:h-[520px] rounded-[28px] overflow-hidden">
-                  <Image
-                    src="/images/about/about-team.jpg"
-                    alt="Equipo de Fratelli's preparando helado artesanal"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                  />
-                </div>
+        <MaskLines
+          className="display mt-6 max-w-5xl text-[clamp(2.2rem,5vw,4.4rem)] text-graphite-900"
+          lines={[
+            "Una heladería artesanal",
+            "convertida en",
+            <span key="x" className="font-semibold text-brand-accent">experiencia de catering.</span>,
+          ]}
+        />
+
+        <div className="mt-14 grid gap-14 md:mt-20 lg:grid-cols-12 lg:gap-10">
+          <Reveal className="lg:col-span-5">
+            <div className="relative mx-auto max-w-[440px] lg:max-w-none">
+              <div
+                aria-hidden
+                className="arch absolute inset-0 -translate-x-3 translate-y-3 border border-brand-primary/70 sm:-translate-x-4 sm:translate-y-4"
+                style={{ overflow: "visible" }}
+              />
+              <div className="arch relative aspect-[4/5] bg-brand-muted">
+                <Image
+                  src="/images/about/about-team.jpg"
+                  alt="Integrante de Fratelli's junto al food truck con un cono de helado"
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                  className="object-cover object-[72%_50%]"
+                />
+                <div aria-hidden className="absolute inset-0 bg-brand-primary/10 mix-blend-multiply" />
               </div>
-            </motion.div>
+            </div>
+          </Reveal>
+
+          <div className="lg:col-span-6 lg:col-start-7">
+            <Reveal>
+              <p className="text-lg leading-relaxed text-graphite-700 md:text-xl">
+                Fratelli&apos;s nació en CDMX con una visión clara: crear helados artesanales
+                con la misma dedicación que un chef dedica a su menú. Hoy llevamos esa pasión
+                a eventos exclusivos con un food truck elegante, servicio impecable y sabores
+                que se recuerdan.
+              </p>
+            </Reveal>
+
+            <dl className="mt-12 border-t border-graphite-900/15">
+              {ABOUT_HIGHLIGHTS.map((item, i) => (
+                <Reveal
+                  key={item.title}
+                  delay={i * 0.08}
+                  className="grid gap-2 border-b border-graphite-900/15 py-7 sm:grid-cols-[0.42fr_1fr] sm:gap-8"
+                >
+                  <dt className="flex items-baseline gap-3 text-lg font-semibold text-graphite-900">
+                    <span className="text-xs font-semibold text-brand-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {item.title}
+                  </dt>
+                  <dd className="text-[0.95rem] leading-relaxed text-graphite-600">
+                    {item.description}
+                  </dd>
+                </Reveal>
+              ))}
+            </dl>
           </div>
         </div>
       </div>

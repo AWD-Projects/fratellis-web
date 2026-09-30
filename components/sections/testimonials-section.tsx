@@ -1,41 +1,40 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { TESTIMONIALS } from "@/lib/content";
+import { MaskLines, Reveal } from "@/components/ui/motion";
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-20 md:py-32 bg-brand-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="lux-eyebrow">Testimonios</p>
-            <h2 className="text-4xl md:text-5xl font-semibold lux-title mt-4">
-              Historias reales, momentos inolvidables.
-            </h2>
-          </div>
+    <section id="testimonials" className="section-y bg-brand-blush">
+      <div className="wrap">
+        <Reveal y={12}>
+          <p className="eyebrow text-brand-accent">Testimonios</p>
+        </Reveal>
+        <MaskLines
+          className="display mt-6 max-w-4xl text-[clamp(2.2rem,5vw,4.5rem)] text-graphite-900"
+          lines={["Historias reales,", "momentos inolvidables."]}
+        />
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="lux-surface rounded-3xl p-6 flex flex-col justify-between"
-              >
-                <p className="text-sm text-graphite-600 leading-relaxed">
+        <ul className="mt-16 border-t border-graphite-900/25 md:mt-24">
+          {TESTIMONIALS.map((item, i) => (
+            <Reveal
+              as="li"
+              key={item.name}
+              delay={i * 0.06}
+              className="grid gap-5 border-b border-graphite-900/25 py-10 md:grid-cols-12 md:gap-10 md:py-14"
+            >
+              <div className="md:col-span-3">
+                <p className="text-lg font-semibold text-graphite-900">{item.name}</p>
+                <p className="mt-1 text-sm text-graphite-700">{item.event}</p>
+              </div>
+              <blockquote className="md:col-span-9">
+                <p className="text-[clamp(1.4rem,2.7vw,2.4rem)] font-light leading-[1.25] tracking-tight text-graphite-900">
                   “{item.quote}”
                 </p>
-                <div className="mt-6">
-                  <p className="text-sm font-semibold text-brand-primary">{item.name}</p>
-                  <p className="text-xs text-graphite-500">{item.event}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+              </blockquote>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   );

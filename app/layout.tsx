@@ -1,12 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#1A1A1A",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fratellishelados.com"),

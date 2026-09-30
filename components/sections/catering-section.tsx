@@ -1,110 +1,174 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { Check, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus, Check } from "lucide-react";
 import { SERVICES, EVENT_TYPES, SITE_CONFIG } from "@/lib/content";
 import { scrollToSection } from "@/lib/utils";
+import { MaskLines, Reveal } from "@/components/ui/motion";
+import { useBar } from "@/components/bar-provider";
 
 export default function CateringSection() {
+  const { eventType, setEventType, services, toggleService } = useBar();
+
   return (
-    <section id="catering" className="py-20 md:py-32 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto space-y-16">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
-            <div>
-              <p className="lux-eyebrow">Catering premium</p>
-              <h2 className="text-4xl md:text-5xl font-semibold lux-title mt-4">
-                Un servicio diseñado para eventos con estilo.
-              </h2>
-              <p className="text-lg text-graphite-600 mt-4">
-                Diseñamos cada servicio como una experiencia: helado artesanal,
-                soda fountain y una puesta en escena que se integra con tu evento.
-              </p>
+    <section id="catering" className="section-y bg-brand-muted">
+      <div className="wrap">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <Reveal y={12}>
+              <p className="eyebrow text-brand-accent">Catering premium</p>
+            </Reveal>
+            <MaskLines
+              className="display mt-6 text-[clamp(2.1rem,4.1vw,3.7rem)] text-graphite-900"
+              lines={["Un servicio diseñado", "para eventos con estilo."]}
+            />
+          </div>
+          <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
+            <p className="text-lg leading-relaxed text-graphite-700">
+              Diseñamos cada servicio como una experiencia: helado artesanal, soda fountain y
+              una puesta en escena que se integra con tu evento.
+            </p>
+          </Reveal>
+        </div>
 
-              <div className="grid gap-4 mt-8">
-                {SERVICES.map((service) => (
-                  <div key={service.title} className="lux-surface rounded-2xl p-5">
-                    <h3 className="text-lg font-semibold text-brand-primary">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm text-graphite-600 mt-2">{service.description}</p>
-                  </div>
-                ))}
-              </div>
+        {/* Servicios + truck */}
+        <div className="mt-16 grid gap-14 md:mt-24 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-7">
+            <ul className="border-t border-graphite-900/20">
+              {SERVICES.map((service, i) => {
+                const active = services.includes(service.title);
+                return (
+                  <Reveal
+                    as="li"
+                    key={service.title}
+                    delay={i * 0.08}
+                    className="border-b border-graphite-900/20"
+                  >
+                    <div className="grid gap-4 py-8 sm:grid-cols-[3rem_1fr_auto] sm:items-start sm:gap-6">
+                      <span className="text-sm font-semibold text-brand-accent">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 className="text-2xl font-medium tracking-tight text-graphite-900 md:text-[1.7rem]">
+                          {service.title}
+                        </h3>
+                        <p className="mt-3 max-w-lg text-[0.95rem] leading-relaxed text-graphite-600">
+                          {service.description}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        aria-pressed={active}
+                        onClick={() => toggleService(service.title)}
+                        className="chip w-fit text-[0.8rem]"
+                      >
+                        {active ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
+                        {active ? "En tu barra" : "Añadir a mi barra"}
+                      </button>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </ul>
 
-              <div className="flex flex-wrap gap-4 mt-8">
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="px-6 py-3 bg-brand-primary text-white rounded-full font-medium"
-                >
-                  Solicitar cotización
-                </button>
-                <a
-                  href={SITE_CONFIG.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 border border-brand-primary text-brand-primary rounded-full font-medium inline-flex items-center gap-2"
-                >
-                  Agendar llamada
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="lux-surface rounded-[32px] p-4">
-                <div className="relative h-[360px] md:h-[460px] rounded-[24px] overflow-hidden">
-                  <Image
-                    src="/images/catering/food-truck.png"
-                    alt="Food truck premium de Fratelli's Helados"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                  />
-                </div>
-              </div>
-            </motion.div>
+            <Reveal className="mt-10 flex flex-wrap gap-4">
+              <button onClick={() => scrollToSection("contact")} className="btn-gold-on-light">
+                Solicitar cotización
+              </button>
+              <a
+                href={SITE_CONFIG.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-line-light"
+              >
+                Agendar llamada
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </Reveal>
           </div>
 
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="lux-surface rounded-[32px] p-4">
-                <div className="relative h-[320px] md:h-[420px] rounded-[24px] overflow-hidden">
-                  <Image
-                    src="/images/events/event-private.jpg"
-                    alt="Food truck de Fratelli's en celebración privada"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            <div>
-              <h3 className="text-3xl md:text-4xl font-semibold lux-title">
-                Perfecto para eventos como:
-              </h3>
-              <div className="grid gap-3 mt-6">
-                {EVENT_TYPES.map((event) => (
-                  <div key={event} className="flex items-start gap-3 text-graphite-600">
-                    <Check className="w-5 h-5 text-brand-primary mt-1" />
-                    <span>{event}</span>
-                  </div>
-                ))}
+          <Reveal className="lg:col-span-5" delay={0.1}>
+            <div className="relative mx-auto max-w-[460px] lg:max-w-none">
+              <div
+                aria-hidden
+                className="arch absolute inset-0 translate-x-3 translate-y-3 border border-graphite-900/40 sm:translate-x-4 sm:translate-y-4"
+                style={{ overflow: "visible" }}
+              />
+              <div className="arch relative aspect-[4/5] bg-brand-blush">
+                <Image
+                  src="/images/catering/food-truck.png"
+                  alt="Food truck negro de Fratelli's con el logotipo dorado"
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                  className="object-contain object-bottom px-6 pb-10 pt-16"
+                />
               </div>
             </div>
+          </Reveal>
+        </div>
+
+        {/* Tipos de evento */}
+        <div className="mt-24 grid gap-12 md:mt-36 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-4">
+            <Reveal>
+              <div className="relative mx-auto aspect-[4/5] max-w-[300px] lg:mx-0">
+                <div className="arch relative h-full w-full bg-brand-blush">
+                  <Image
+                    src="/images/events/event-private.jpg"
+                    alt="Globos de colores en una celebración privada"
+                    fill
+                    sizes="(max-width: 1024px) 60vw, 25vw"
+                    className="object-cover"
+                  />
+                  <div aria-hidden className="absolute inset-0 bg-brand-primary/25 mix-blend-multiply" />
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-8">
+            <Reveal y={12}>
+              <p className="eyebrow text-brand-accent">Perfecto para eventos como</p>
+            </Reveal>
+            <ul className="mt-6 border-t border-graphite-900/20">
+              {EVENT_TYPES.map((event, i) => {
+                const active = eventType === event;
+                return (
+                  <Reveal as="li" key={event} delay={i * 0.07} className="border-b border-graphite-900/20">
+                    <button
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => {
+                        setEventType(active ? null : event);
+                        if (!active) scrollToSection("contact");
+                      }}
+                      className="group flex w-full items-center justify-between gap-6 py-6 text-left"
+                    >
+                      <span
+                        className={`text-[clamp(1.35rem,2.6vw,2.15rem)] font-light tracking-tight transition-all duration-300 group-hover:translate-x-2 ${
+                          active ? "text-brand-accent" : "text-graphite-900"
+                        }`}
+                      >
+                        {event}
+                      </span>
+                      <span
+                        className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border transition-colors ${
+                          active
+                            ? "border-graphite-900 bg-graphite-900 text-white"
+                            : "border-graphite-900/30 text-graphite-900 group-hover:border-graphite-900"
+                        }`}
+                        aria-hidden
+                      >
+                        {active ? <Check className="h-4 w-4" /> : <ArrowUpRight className="h-4 w-4" />}
+                      </span>
+                    </button>
+                  </Reveal>
+                );
+              })}
+            </ul>
+            <p className="mt-5 text-sm text-graphite-500">
+              Elige uno y lo llevamos directo a tu cotización.
+            </p>
           </div>
         </div>
       </div>
