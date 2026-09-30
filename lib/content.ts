@@ -127,4 +127,9 @@ export const ABOUT_HIGHLIGHTS = [
     description:
       "Elegimos ingredientes reales para que lo que se prueba en tu evento sepa igual que en nuestra heladería.",
   },
+  {
+    title: "Cadena de frío",
+    description:
+      "Cuidamos la temperatura desde la heladería hasta tu mesa para que el helado llegue firme y en su punto.",
+  },
 ] as const;
