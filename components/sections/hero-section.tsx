@@ -36,6 +36,18 @@ function HeroRibbon({ reduce }: { reduce: boolean }) {
         opacity={0.32}
         {...draw(0.7, 2.6)}
       />
+      <motion.path
+        d="M -50 226 C 130 96 360 66 550 158 C 720 240 800 350 960 424 C 1120 498 1310 372 1500 256"
+        strokeWidth={2}
+        opacity={0.4}
+        {...draw(0.2, 2.8)}
+      />
+      <motion.path
+        d="M -50 262 C 140 134 364 104 552 194 C 718 274 800 384 962 462 C 1122 536 1314 410 1500 296"
+        strokeWidth={1}
+        opacity={0.24}
+        {...draw(0.5, 2.8)}
+      />
     </svg>
   );
 }
