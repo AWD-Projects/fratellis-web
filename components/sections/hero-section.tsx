@@ -1,97 +1,132 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
-import { ArrowDown } from "lucide-react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { ArrowDownRight } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
-import { TRUST_POINTS } from "@/lib/content";
+import { MaskLines, Reveal } from "@/components/ui/motion";
+
+/* Cinta dorada: eco de la línea ondulada y el remolino del logo */
+function HeroRibbon({ reduce }: { reduce: boolean }) {
+  const draw = (delay: number, dur: number) => ({
+    initial: { pathLength: 0 },
+    animate: { pathLength: 1 },
+    transition: reduce ? { duration: 0 } : { duration: dur, delay, ease: [0.22, 1, 0.36, 1] as const },
+  });
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 1440 900"
+      preserveAspectRatio="xMidYMid slice"
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full"
+      fill="none"
+      stroke="#B4945C"
+      strokeLinecap="round"
+    >
+      <motion.path
+        d="M 1500 540 C 1340 640 1190 800 990 802 C 780 804 650 668 470 668 C 310 668 210 776 128 806 C 46 836 -6 782 44 742 C 84 712 136 752 104 786"
+        strokeWidth={2.5}
+        opacity={0.55}
+        {...draw(0.4, 2.6)}
+      />
+      <motion.path
+        d="M 1500 584 C 1350 684 1204 842 992 842 C 770 842 640 706 470 706 C 320 706 224 812 140 846"
+        strokeWidth={1.2}
+        opacity={0.32}
+        {...draw(0.7, 2.6)}
+      />
+      <motion.path
+        d="M -50 226 C 130 96 360 66 550 158 C 720 240 800 350 960 424 C 1120 498 1310 372 1500 256"
+        strokeWidth={2}
+        opacity={0.4}
+        {...draw(0.2, 2.8)}
+      />
+      <motion.path
+        d="M -50 262 C 140 134 364 104 552 194 C 718 274 800 384 962 462 C 1122 536 1314 410 1500 296"
+        strokeWidth={1}
+        opacity={0.24}
+        {...draw(0.5, 2.8)}
+      />
+    </svg>
+  );
+}
 
 export default function HeroSection() {
+  const stage = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: stage, offset: ["start start", "end start"] });
+  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "9%"]);
+
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16 md:pb-24">
-      <div className="absolute inset-0 lux-gradient" />
-      <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-brand-secondary/30 blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-brand-primary/10 blur-3xl" />
+    <section
+      id="hero"
+      className="grain relative overflow-hidden bg-graphite-900 pb-12 pt-32 text-white md:pb-16 md:pt-36 lg:min-h-[100svh]"
+    >
+      <HeroRibbon reduce={!!reduce} />
+      <div className="wrap relative z-10">
+        <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-7">
+            <Reveal y={12}>
+              <p className="eyebrow text-brand-primary">Fuente de sodas &amp; helados · CDMX</p>
+            </Reveal>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
-          <div className="space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold lux-title text-balance">
-                Fratelli&apos;s Helados, <span className="text-brand-gradient">catering premium</span> en food truck.
-              </h1>
-              <p className="text-lg md:text-xl text-graphite-600 max-w-2xl">
-                Llevamos helado artesanal, sodas italianas y una estética elegante a bodas,
-                eventos corporativos y celebraciones privadas en CDMX.
+            <MaskLines
+              as="h1"
+              immediate
+              delay={0.15}
+              className="display mt-7 text-[clamp(2.7rem,4.7vw,4.2rem)]"
+              lines={[
+                "Que a tu evento",
+                <span key="s" className="font-semibold text-brand-primary">no le falte nada.</span>,
+              ]}
+            />
+
+            <Reveal delay={0.7} y={18}>
+              <p className="mt-9 max-w-xl text-[1.05rem] leading-relaxed text-white/80 md:text-lg">
+                Fuente de sodas gourmet para eventos en CDMX. Helado y café de base, con
+                postres, bebidas y botanas para completar el menú.
               </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="flex flex-wrap gap-4"
-            >
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="px-8 py-4 bg-brand-primary text-white rounded-full font-medium transition-all hover:opacity-90"
-              >
-                Reserva tu evento
-              </button>
-              <button
-                onClick={() => scrollToSection("catering")}
-                className="px-8 py-4 border border-brand-primary text-brand-primary rounded-full font-medium transition-all hover:bg-brand-primary hover:text-white"
-              >
-                Ver servicios
-              </button>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-4 pt-4">
-              {TRUST_POINTS.map((item) => (
-                <div key={item.title} className="lux-surface rounded-2xl p-4">
-                  <p className="text-sm font-semibold text-brand-primary">{item.title}</p>
-                  <p className="text-xs text-graphite-500 mt-1">{item.description}</p>
-                </div>
-              ))}
-            </div>
+              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+                <button onClick={() => scrollToSection("contact")} className="btn-gold">
+                  Cotiza tu evento
+                </button>
+                <button
+                  onClick={() => scrollToSection("catering")}
+                  className="link-line inline-flex items-center gap-2 py-1 text-sm font-semibold tracking-wide text-white"
+                >
+                  Ver servicios
+                  <ArrowDownRight className="h-4 w-4 text-brand-primary" />
+                </button>
+              </div>
+            </Reveal>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9 }}
-            className="relative"
-          >
-            <div className="lux-surface rounded-[40px] p-4">
-              <div className="relative h-[420px] md:h-[520px] rounded-[32px] overflow-hidden">
+          <div ref={stage} className="relative mx-auto w-full max-w-[460px] lg:col-span-5 lg:max-w-none">
+            {/* contorno desplazado: el mismo arco, dibujado con línea fina */}
+            <div
+              aria-hidden
+              className="arch absolute inset-0 translate-x-3 translate-y-3 border border-brand-primary/60 sm:translate-x-4 sm:translate-y-4"
+              style={{ overflow: "visible" }}
+            />
+            <motion.div
+              initial={{ clipPath: "inset(100% 0 0 0)" }}
+              animate={{ clipPath: "inset(0% 0 0 0)" }}
+              transition={reduce ? { duration: 0 } : { duration: 1.3, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              className="arch relative aspect-[4/5] bg-brand-blush"
+            >
+              <motion.div style={{ y: imgY }} className="absolute inset-[-6%]">
                 <Image
                   src="/images/hero/hero.png"
-                  alt="Food truck de Fratelli's en un evento elegante"
+                  alt="Vasos de helado Fratelli's con tapa de sabor chocolate"
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                  className="scale-[1.38] object-contain"
                 />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="flex justify-center pt-10">
-          <button
-            onClick={() => scrollToSection("about")}
-            className="flex flex-col items-center gap-2 text-graphite-500 hover:text-brand-primary transition-colors"
-          >
-            <span className="text-xs tracking-[0.2em] uppercase">Descubre la historia</span>
-            <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
-              <ArrowDown className="w-4 h-4" />
+              </motion.div>
             </motion.div>
-          </button>
+          </div>
         </div>
       </div>
     </section>

@@ -7,6 +7,9 @@ export interface ContactFormData {
   invitados: string;
   ubicacion: string;
   mensaje: string;
+  servicios?: string[];
+  sabores?: string[];
+  notas?: string;
 }
 
 export interface ApiResponse {

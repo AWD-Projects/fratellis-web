@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: "Fratelli's Helados",
-  description: "Catering premium en food truck con helados artesanales y sodas italianas",
+  description: "Fuente de sodas gourmet para eventos en CDMX: helado, café, postres, bebidas y botanas",
   email: "fratellisheladeria16@gmail.com",
-  phone: "+52 55 1234 5678",
+  phone: "+52 56 1811 9658",
   address: "Ciudad de México, México",
   social: {
     facebook: "https://www.facebook.com/profile.php?id=100063525325496",
@@ -13,41 +13,39 @@ export const SITE_CONFIG = {
 
 export const NAV_ITEMS = [
   { name: "Inicio", href: "hero" },
-  { name: "Nosotros", href: "about" },
-  { name: "Catering", href: "catering" },
+  { name: "Servicios", href: "catering" },
   { name: "Sabores", href: "flavors" },
-  { name: "Food Truck", href: "truck" },
-  { name: "Testimonios", href: "testimonials" },
+  { name: "Clientes", href: "clients" },
+  { name: "Nosotros", href: "about" },
   { name: "Galería", href: "gallery" },
   { name: "Contacto", href: "contact" },
 ] as const;
 
-export const TRUST_POINTS = [
-  { title: "Más de una década", description: "de experiencia en catering premium." },
-  { title: "Equipo propio", description: "capacitado en montaje y servicio." },
-  { title: "Menús curados", description: "sabores artesanales y sodas italianas." },
-] as const;
-
 export const SERVICES = [
   {
-    title: "Barra de helado artesanal",
-    description: "Selección curada de sabores clásicos y de temporada, servidos al momento.",
+    title: "Barra de helado",
+    description: "Helado servido al momento, con el menú completo de sabores.",
   },
   {
-    title: "Soda fountain premium",
-    description: "Sodas italianas, frappés y bebidas personalizadas con mixología sin alcohol.",
+    title: "Soda fountain y café",
+    description: "Sodas italianas, frappés, café y bebidas a tu gusto, con mixología sin alcohol.",
   },
   {
-    title: "Experiencia a medida",
-    description: "Montaje elegante, branding discreto y atención que eleva tu evento.",
+    title: "Postres y botanas",
+    description: "Para acompañar el helado y las bebidas: opciones dulces y saladas para tu menú.",
+  },
+  {
+    title: "Montaje a medida",
+    description: "Adaptamos la barra a la decoración y al espacio de tu evento, con detalles de marca discretos.",
   },
 ] as const;
 
 export const EVENT_TYPES = [
-  "Bodas boutique y bodas destino",
+  "Bodas boutique y de destino",
   "Eventos corporativos y lanzamientos",
+  "Eventos escolares e institucionales",
   "Cumpleaños y celebraciones privadas",
-  "Experiencias VIP y activaciones de marca",
+  "Activaciones de marca y eventos VIP",
 ] as const;
 
 export const FLAVOR_HIGHLIGHTS = [
@@ -55,31 +53,37 @@ export const FLAVOR_HIGHLIGHTS = [
     name: "Chocolate oscuro",
     description: "Cacao intenso con final sedoso.",
     image: "/images/flavors/chocolate.png",
+    tint: "#4A3A36",
   },
   {
     name: "Vainilla",
-    description: "Aromática y elegante.",
+    description: "Aromática y de sabor limpio.",
     image: "/images/flavors/vainilla.png",
+    tint: "#817D6E",
   },
   {
     name: "Fresa",
-    description: "Fruta fresca, textura cremosa.",
+    description: "Fruta fresca, sabor directo.",
     image: "/images/flavors/fresa.png",
+    tint: "#7D6D70",
   },
   {
     name: "Café de especialidad",
     description: "Notas tostadas y cuerpo suave.",
     image: "/images/flavors/cafe.png",
+    tint: "#736A5B",
   },
   {
     name: "Limón",
     description: "Refrescante y vibrante.",
     image: "/images/flavors/limon.png",
+    tint: "#617140",
   },
   {
     name: "Nuez",
     description: "Textura crujiente y cremosa.",
     image: "/images/flavors/nuez.png",
+    tint: "#80786E",
   },
 ] as const;
 
@@ -90,50 +94,37 @@ export const SEASONAL_FLAVORS = [
   "Rompope",
 ] as const;
 
-export const TESTIMONIALS = [
-  {
-    quote:
-      "Fratelli’s elevó la experiencia de nuestros invitados con un servicio impecable y sabores artesanales.",
-    name: "KBR",
-    event: "Evento corporativo",
-  },
-  {
-    quote:
-      "Un food truck elegante, puntualidad absoluta y atención cálida en todo momento.",
-    name: "Skusa México",
-    event: "Evento de marca",
-  },
-  {
-    quote:
-      "Nuestros asistentes quedaron encantados. La puesta en escena fue premium y cuidada.",
-    name: "Foro Pegaso",
-    event: "Experiencia para invitados",
-  },
+export const CLIENTS = [
+  "American School Foundation",
+  "Tec de Monterrey, campus CDMX",
+  "Colegio Madrid CDMX",
+  "KBR",
+  "Skusa México",
+  "Foro Pegaso",
 ] as const;
-
 export const GALLERY_IMAGES = [
-  { src: "/images/gallery/event-01.jpeg", alt: "Servicio en boda elegante" },
-  { src: "/images/gallery/event-02.jpg", alt: "Helados artesanales en barra" },
-  { src: "/images/gallery/event-03.jpg", alt: "Food truck en evento nocturno" },
-  { src: "/images/gallery/event-04.jpg", alt: "Catering premium para invitados" },
-  { src: "/images/gallery/event-05.jpg", alt: "Estación de sodas italianas" },
-  { src: "/images/gallery/event-06.jpeg", alt: "Experiencia en evento corporativo" },
+  { src: "/images/gallery/event-01.jpeg", alt: "Tres bebidas de la soda fountain de Fratelli's frente al logotipo dorado" },
+  { src: "/images/gallery/event-02.jpg", alt: "Bola de helado de fresa en vaso Fratelli's con un arcoíris al fondo" },
+  { src: "/images/gallery/event-03.jpg", alt: "Equipo de Fratelli's sirviendo durante un evento" },
+  { src: "/images/gallery/event-04.jpg", alt: "Helado de menta en vaso Fratelli's durante un evento" },
+  { src: "/images/gallery/event-05.jpg", alt: "Logotipo dorado de Fratelli's en el equipo de servicio durante un evento" },
+  { src: "/images/gallery/event-06.jpeg", alt: "Cono de helado de fresa frente al logotipo de Fratelli's" },
 ] as const;
 
 export const ABOUT_HIGHLIGHTS = [
   {
-    title: "Origen artesanal",
+    title: "Recetas propias",
     description:
-      "Nacimos con la obsesión por el helado auténtico: recetas propias, ingredientes reales y un servicio impecable.",
+      "Nacimos con la obsesión por el helado auténtico: cada sabor sale de nuestras propias recetas.",
   },
   {
-    title: "Catering con carácter",
+    title: "Atención al cliente",
     description:
-      "Nuestro food truck es elegante, móvil y pensado para integrarse con la estética de tu evento.",
+      "Te acompañamos desde la cotización hasta el último servicio, con trato directo en cada paso.",
   },
   {
-    title: "Calidad que se percibe",
+    title: "Calidad en el producto",
     description:
-      "Cada sabor se elabora en lotes pequeños para preservar textura, aroma y frescura.",
+      "Cuidamos que cada helado, café y postre llegue a tu evento con el sabor y la textura que esperas.",
   },
 ] as const;

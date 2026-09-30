@@ -18,7 +18,7 @@ A bespoke, mobile-first website for Fratelli's Helados focused on premium cateri
 - Tailwind CSS
 - Framer Motion
 - React Hook Form + Zod
-- SendGrid
+- Resend
 
 ## Setup
 
@@ -29,8 +29,8 @@ A bespoke, mobile-first website for Fratelli's Helados focused on premium cateri
 
 2. Create `.env.local`:
    ```env
-   SENDGRID_API_KEY=your_sendgrid_api_key_here
-   SENDGRID_FROM_EMAIL=fratellisheladeria16@gmail.com
+   RESEND_API_KEY=re_xxxxxxxx
+   RESEND_FROM_EMAIL=Fratelli's Helados <cotizaciones@tu-dominio-verificado.com>
    CONTACT_EMAIL=fratellisheladeria16@gmail.com
    ```
 

@@ -1,83 +1,79 @@
 "use client";
 
 import Image from "next/image";
+import { Facebook, Instagram } from "lucide-react";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/content";
 import { scrollToSection } from "@/lib/utils";
-import { Facebook, Instagram } from "lucide-react";
+import { Reveal } from "@/components/ui/motion";
 
 export default function SiteFooter() {
   return (
-    <footer className="py-16 bg-brand-background border-t border-brand-secondary/40">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr_1fr] gap-10">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full overflow-hidden">
-                <Image src="/images/brand/logo.png" alt="Fratelli's" width={48} height={48} />
-              </div>
-              <span className="text-xl font-semibold">Fratelli&apos;s Helados</span>
+    <footer className="grain bg-graphite-900 pb-10 pt-16 text-white sm:pt-24">
+      <div className="wrap">
+        <Reveal className="grid gap-14 lg:grid-cols-12" y={24}>
+          <div className="lg:col-span-5">
+            <div className="relative h-40 w-40 sm:h-52 sm:w-52">
+              <Image
+                src="/images/brand/logo.png"
+                alt="Fratelli's, fuente de sodas y helados"
+                fill
+                sizes="208px"
+                className="object-contain object-left"
+              />
             </div>
-            <p className="text-sm text-graphite-600 leading-relaxed">
-              Food truck premium con helados artesanales y sodas italianas para eventos
-              memorables en CDMX.
+            <p className="mt-8 max-w-sm text-[0.95rem] leading-relaxed text-white/75">
+              Atendemos eventos en toda la CDMX y área metropolitana.
             </p>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold tracking-[0.2em] uppercase text-graphite-500 mb-4">
-              Navegación
-            </h3>
-            <div className="grid grid-cols-2 gap-2 text-sm">
+          <nav aria-label="Pie de página" className="lg:col-span-3 lg:col-start-7">
+            <h3 className="eyebrow text-brand-primary">Navegación</h3>
+            <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-[0.95rem] lg:grid-cols-1">
               {NAV_ITEMS.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-graphite-600 hover:text-brand-primary transition-colors text-left"
-                >
-                  {link.name}
-                </button>
+                <li key={link.name}>
+                  <button
+                    onClick={() => scrollToSection(link.href)}
+                    className="link-line text-white/80 transition-colors hover:text-white"
+                  >
+                    {link.name}
+                  </button>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </nav>
 
-          <div>
-            <h3 className="text-sm font-semibold tracking-[0.2em] uppercase text-graphite-500 mb-4">
-              Contacto
-            </h3>
-            <div className="space-y-3 text-sm text-graphite-600">
-              <p>{SITE_CONFIG.email}</p>
-              <p>{SITE_CONFIG.phone}</p>
-              <p>{SITE_CONFIG.address}</p>
-            </div>
-            <div className="flex gap-3 mt-4">
-              <a
-                href={SITE_CONFIG.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-brand-muted flex items-center justify-center hover:bg-brand-secondary transition-colors"
-              >
-                <Facebook className="w-5 h-5 text-graphite-600" />
-              </a>
+          <div className="lg:col-span-3">
+            <h3 className="eyebrow text-brand-primary">Síguenos</h3>
+            <div className="mt-6 flex gap-3">
               <a
                 href={SITE_CONFIG.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-brand-muted flex items-center justify-center hover:bg-brand-secondary transition-colors"
+                aria-label="Instagram de Fratelli's"
+                className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-brand-primary hover:text-brand-primary"
               >
-                <Instagram className="w-5 h-5 text-graphite-600" />
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href={SITE_CONFIG.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook de Fratelli's"
+                className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-brand-primary hover:text-brand-primary"
+              >
+                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="border-t border-brand-secondary/40 mt-12 pt-6 text-sm text-graphite-500 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <div className="mt-16 flex flex-col gap-2 border-t border-white/15 pt-6 text-sm text-white/65 md:flex-row md:items-center md:justify-between">
           <span>© 2026 Fratelli&apos;s Helados</span>
-          <span>Catering premium para eventos con estilo.</span>
           <a
             href="https://www.amoxtli.tech"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-graphite-500 hover:text-brand-primary transition-colors"
+            className="link-line w-fit hover:text-white"
           >
             Desarrollado por Amoxtli®
           </a>

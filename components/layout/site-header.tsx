@@ -1,116 +1,203 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/content";
 import { scrollToSection } from "@/lib/utils";
+import { useBar } from "@/components/bar-provider";
 
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>(NAV_ITEMS[0].href);
+  const { flavors } = useBar();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    let frame = 0;
+
+    // Sección activa = la última cuyo borde superior ya cruzó la línea de lectura
+    // (30 % del alto de la ventana). Al llegar al final de la página, la última.
+    const update = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 40);
+
+      const probe = window.innerHeight * 0.3;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      let current: string = NAV_ITEMS[0].href;
+
+      if (atBottom) {
+        current = NAV_ITEMS[NAV_ITEMS.length - 1].href;
+      } else {
+        for (const item of NAV_ITEMS) {
+          const el = document.getElementById(item.href);
+          if (el && el.getBoundingClientRect().top <= probe) current = item.href;
+        }
+      }
+      setActive(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
-  const handleNavClick = (href: string) => {
-    scrollToSection(href);
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setIsOpen(false);
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isOpen]);
+
+  const go = (href: string) => {
     setIsOpen(false);
+    // Espera a que el menú libere el scroll antes de desplazar
+    window.setTimeout(() => scrollToSection(href), isOpen ? 60 : 0);
   };
 
-  return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-3" : "py-5"
-      }`}
+  const cta = (
+    <button
+      onClick={() => go("contact")}
+      className="btn-gold !px-5 !py-2.5 text-[0.8rem]"
     >
-      <div className="container mx-auto px-4">
-        <div
-          className={`rounded-full px-6 py-4 transition-all duration-300 ${
-            scrolled ? "lux-surface" : "bg-white/60 backdrop-blur-lg"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <button
-              onClick={() => handleNavClick("hero")}
-              className="flex items-center gap-3"
-            >
-              <div className="relative w-10 h-10">
-                <Image
-                  src="/images/brand/logo.png"
-                  alt="Fratelli's"
-                  fill
-                  className="object-contain"
+      Cotiza tu evento
+      {flavors.length > 0 && (
+        <span className="grid h-5 min-w-5 place-items-center rounded-full bg-graphite-900 px-1 text-[0.68rem] font-bold text-brand-primary">
+          {flavors.length}
+        </span>
+      )}
+    </button>
+  );
+
+  return (
+    <>
+      <nav
+        aria-label="Principal"
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,padding,border-color] duration-500 ${
+          scrolled || isOpen
+            ? "border-b border-white/10 bg-graphite-900 py-3"
+            : "border-b border-transparent bg-transparent py-5"
+        }`}
+      >
+        <div className="wrap flex items-center justify-between gap-6">
+          <button
+            onClick={() => go("hero")}
+            className="flex items-center gap-3 text-white"
+            aria-label="Fratelli's Helados, ir al inicio"
+          >
+            <span className="relative block h-14 w-14 sm:h-16 sm:w-16">
+              <Image
+                src="/images/brand/logo.png"
+                alt=""
+                fill
+                sizes="64px"
+                className="object-contain"
+                priority
+              />
+            </span>
+            <span className="hidden text-[0.95rem] font-medium tracking-tight sm:block">
+              Fratelli&apos;s Helados
+            </span>
+          </button>
+
+          <div className="hidden items-center gap-1 xl:flex">
+            {NAV_ITEMS.filter((i) => i.href !== "hero").map((item) => (
+              <button
+                key={item.name}
+                onClick={() => go(item.href)}
+                aria-current={active === item.href ? "location" : undefined}
+                className={`relative px-3.5 py-2 text-[0.8rem] font-medium tracking-wide transition-colors hover:text-brand-primary ${
+                  active === item.href ? "text-brand-primary" : "text-white/80"
+                }`}
+              >
+                {item.name}
+                <span
+                  aria-hidden
+                  className={`absolute inset-x-3.5 -bottom-0.5 h-px origin-left bg-brand-primary transition-transform duration-500 ease-curtain ${
+                    active === item.href ? "scale-x-100" : "scale-x-0"
+                  }`}
                 />
-              </div>
-              <span className="font-body text-lg text-brand-text hidden sm:block">
-                Fratelli&apos;s Helados
-              </span>
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3">
+            {cta}
+            <button
+              onClick={() => setIsOpen((v) => !v)}
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-brand-primary hover:text-brand-primary xl:hidden"
+              aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={isOpen}
+              aria-controls="menu-movil"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
+          </div>
+        </div>
+      </nav>
 
-            <div className="hidden lg:flex items-center gap-2">
-              {NAV_ITEMS.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className="px-4 py-2 text-sm text-graphite-600 hover:text-brand-primary transition-colors"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-
-            <div className="hidden lg:block">
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="menu-movil"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú"
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="grain fixed inset-0 z-40 overflow-y-auto bg-graphite-900 pt-28 text-white xl:hidden"
+          >
+            <div className="wrap pb-12">
+              <ul className="divide-y divide-white/10 border-y border-white/10">
+                {NAV_ITEMS.map((item, i) => (
+                  <li key={item.name}>
+                    <button
+                      onClick={() => go(item.href)}
+                      aria-current={active === item.href ? "location" : undefined}
+                      className="group flex w-full items-baseline gap-5 py-4 text-left"
+                    >
+                      <span className="w-6 text-xs font-semibold text-brand-primary">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span
+                        className={`text-3xl font-light tracking-tight transition-colors group-hover:text-brand-primary sm:text-4xl ${
+                          active === item.href ? "text-brand-primary" : "text-white"
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
               <a
                 href={SITE_CONFIG.calendly}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-brand-primary text-white rounded-full text-sm font-medium transition-all hover:opacity-90"
+                className="btn-line-dark mt-8 w-full"
               >
                 Agendar llamada
               </a>
             </div>
-
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-graphite-600 hover:text-brand-primary transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {isOpen && (
-        <div className="lg:hidden mt-4 container mx-auto px-4">
-          <div className="lux-surface rounded-3xl p-6 space-y-2">
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.href)}
-                className="w-full text-left px-4 py-3 text-graphite-700 hover:text-brand-primary font-medium rounded-xl hover:bg-brand-secondary/40 transition-all"
-              >
-                {item.name}
-              </button>
-            ))}
-            <a
-              href={SITE_CONFIG.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center px-4 py-3 bg-brand-primary text-white rounded-xl font-medium mt-4"
-            >
-              Agendar llamada
-            </a>
-          </div>
-        </div>
-      )}
-    </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
