@@ -66,11 +66,6 @@ export default function GallerySection() {
               lines={["Así se ve", "en los eventos."]}
             />
           </div>
-          <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
-            <p className="text-lg leading-relaxed text-white/75">
-              Vasos, conos y sodas en pleno servicio.
-            </p>
-          </Reveal>
         </div>
 
         <ul className="mt-16 grid gap-3 md:mt-24 md:auto-rows-[190px] md:grid-cols-12 md:gap-4 lg:auto-rows-[230px]">

@@ -108,28 +108,6 @@ export const CLIENTS = [
   "Skusa México",
   "Foro Pegaso",
 ] as const;
-
-export const TESTIMONIALS = [
-  {
-    quote:
-      "Fratelli’s elevó la experiencia de nuestros invitados con un servicio impecable y sabores artesanales.",
-    name: "KBR",
-    event: "Evento corporativo",
-  },
-  {
-    quote:
-      "Un food truck elegante, puntualidad absoluta y atención cálida en todo momento.",
-    name: "Skusa México",
-    event: "Evento de marca",
-  },
-  {
-    quote:
-      "Nuestros asistentes quedaron encantados. La puesta en escena fue premium y cuidada.",
-    name: "Foro Pegaso",
-    event: "Evento para invitados",
-  },
-] as const;
-
 export const GALLERY_IMAGES = [
   { src: "/images/gallery/event-01.jpeg", alt: "Tres bebidas de la soda fountain de Fratelli's frente al logotipo dorado" },
   { src: "/images/gallery/event-02.jpg", alt: "Bola de helado de fresa en vaso Fratelli's con un arcoíris al fondo" },

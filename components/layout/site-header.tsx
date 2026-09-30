@@ -11,13 +11,45 @@ import { useBar } from "@/components/bar-provider";
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>(NAV_ITEMS[0].href);
   const { flavors } = useBar();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
+    let frame = 0;
+
+    // Sección activa = la última cuyo borde superior ya cruzó la línea de lectura
+    // (30 % del alto de la ventana). Al llegar al final de la página, la última.
+    const update = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 40);
+
+      const probe = window.innerHeight * 0.3;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      let current: string = NAV_ITEMS[0].href;
+
+      if (atBottom) {
+        current = NAV_ITEMS[NAV_ITEMS.length - 1].href;
+      } else {
+        for (const item of NAV_ITEMS) {
+          const el = document.getElementById(item.href);
+          if (el && el.getBoundingClientRect().top <= probe) current = item.href;
+        }
+      }
+      setActive(current);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -87,9 +119,18 @@ export default function SiteHeader() {
               <button
                 key={item.name}
                 onClick={() => go(item.href)}
-                className="px-3.5 py-2 text-[0.8rem] font-medium tracking-wide text-white/80 transition-colors hover:text-brand-primary"
+                aria-current={active === item.href ? "location" : undefined}
+                className={`relative px-3.5 py-2 text-[0.8rem] font-medium tracking-wide transition-colors hover:text-brand-primary ${
+                  active === item.href ? "text-brand-primary" : "text-white/80"
+                }`}
               >
                 {item.name}
+                <span
+                  aria-hidden
+                  className={`absolute inset-x-3.5 -bottom-0.5 h-px origin-left bg-brand-primary transition-transform duration-500 ease-curtain ${
+                    active === item.href ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
               </button>
             ))}
           </div>
@@ -128,12 +169,17 @@ export default function SiteHeader() {
                   <li key={item.name}>
                     <button
                       onClick={() => go(item.href)}
+                      aria-current={active === item.href ? "location" : undefined}
                       className="group flex w-full items-baseline gap-5 py-4 text-left"
                     >
                       <span className="w-6 text-xs font-semibold text-brand-primary">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="text-3xl font-light tracking-tight transition-colors group-hover:text-brand-primary sm:text-4xl">
+                      <span
+                        className={`text-3xl font-light tracking-tight transition-colors group-hover:text-brand-primary sm:text-4xl ${
+                          active === item.href ? "text-brand-primary" : "text-white"
+                        }`}
+                      >
                         {item.name}
                       </span>
                     </button>

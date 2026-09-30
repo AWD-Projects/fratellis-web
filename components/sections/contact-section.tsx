@@ -144,10 +144,11 @@ export default function ContactSection() {
 
         <div className="mt-16 grid gap-14 md:mt-24 lg:grid-cols-12 lg:gap-12">
           {/* Formulario */}
+          <Reveal className="lg:col-span-7" y={36}>
           <form
             onSubmit={handleSubmit(onSubmit)}
             noValidate
-            className="space-y-14 lg:col-span-7"
+            className="space-y-14"
             aria-describedby="estado-envio"
           >
             <fieldset id="paso-evento">
@@ -357,10 +358,12 @@ export default function ContactSection() {
               </div>
             </div>
           </form>
+          </Reveal>
 
           {/* Resumen: "Tu barra" */}
           <aside className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
+              <Reveal y={36} delay={0.1}>
               <div className="grain relative overflow-hidden bg-graphite-900 p-7 text-white sm:p-9">
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -422,6 +425,7 @@ export default function ContactSection() {
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>
+              </Reveal>
             </div>
           </aside>
         </div>

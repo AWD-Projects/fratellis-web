@@ -4,12 +4,13 @@ import Image from "next/image";
 import { Facebook, Instagram } from "lucide-react";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/content";
 import { scrollToSection } from "@/lib/utils";
+import { Reveal } from "@/components/ui/motion";
 
 export default function SiteFooter() {
   return (
     <footer className="grain bg-graphite-900 pb-10 pt-16 text-white sm:pt-24">
       <div className="wrap">
-        <div className="grid gap-14 lg:grid-cols-12">
+        <Reveal className="grid gap-14 lg:grid-cols-12" y={24}>
           <div className="lg:col-span-5">
             <div className="relative h-40 w-40 sm:h-52 sm:w-52">
               <Image
@@ -73,7 +74,7 @@ export default function SiteFooter() {
               </a>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         <div className="mt-16 flex flex-col gap-2 border-t border-white/15 pt-6 text-sm text-white/65 md:flex-row md:items-center md:justify-between">
           <span>© 2026 Fratelli&apos;s Helados</span>

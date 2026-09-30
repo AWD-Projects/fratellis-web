@@ -37,7 +37,7 @@ export default function FlavorsSection() {
         </div>
 
         {/* Escenario */}
-        <div className="mt-16 grid gap-10 md:mt-24 lg:grid-cols-12 lg:gap-8">
+        <Reveal className="mt-16 grid gap-10 md:mt-24 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <ul
               role="tablist"
@@ -146,10 +146,10 @@ export default function FlavorsSection() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Temporada */}
-        <div className="mt-20 grid gap-8 border-t border-white/15 pt-10 md:mt-28 lg:grid-cols-12">
+        <Reveal className="mt-20 grid gap-8 border-t border-white/15 pt-10 md:mt-28 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="eyebrow text-brand-primary">Temporada</p>
             <h3 className="mt-4 text-2xl font-light tracking-tight md:text-3xl">
@@ -181,7 +181,7 @@ export default function FlavorsSection() {
               );
             })}
           </ul>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
