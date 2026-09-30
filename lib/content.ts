@@ -123,13 +123,13 @@ export const ABOUT_HIGHLIGHTS = [
       "Nacimos con la obsesión por el helado auténtico: cada sabor sale de nuestras propias recetas.",
   },
   {
-    title: "Ingredientes reales",
+    title: "Atención al cliente",
     description:
-      "Elegimos ingredientes reales para que lo que se prueba en tu evento sepa igual que en nuestra heladería.",
+      "Te acompañamos desde la cotización hasta el último servicio, con trato directo en cada paso.",
   },
   {
-    title: "Cadena de frío",
+    title: "Calidad en el producto",
     description:
-      "Cuidamos la temperatura desde la heladería hasta tu mesa para que el helado llegue firme y en su punto.",
+      "Cuidamos que cada helado, café y postre llegue a tu evento con el sabor y la textura que esperas.",
   },
 ] as const;
