@@ -7,6 +7,39 @@ import { ArrowDownRight } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
 import { MaskLines, Reveal } from "@/components/ui/motion";
 
+/* Cinta dorada: eco de la línea ondulada y el remolino del logo */
+function HeroRibbon({ reduce }: { reduce: boolean }) {
+  const draw = (delay: number, dur: number) => ({
+    initial: { pathLength: 0 },
+    animate: { pathLength: 1 },
+    transition: reduce ? { duration: 0 } : { duration: dur, delay, ease: [0.22, 1, 0.36, 1] as const },
+  });
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 1440 900"
+      preserveAspectRatio="xMidYMid slice"
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full"
+      fill="none"
+      stroke="#B4945C"
+      strokeLinecap="round"
+    >
+      <motion.path
+        d="M 1500 540 C 1340 640 1190 800 990 802 C 780 804 650 668 470 668 C 310 668 210 776 128 806 C 46 836 -6 782 44 742 C 84 712 136 752 104 786"
+        strokeWidth={2.5}
+        opacity={0.55}
+        {...draw(0.4, 2.6)}
+      />
+      <motion.path
+        d="M 1500 584 C 1350 684 1204 842 992 842 C 770 842 640 706 470 706 C 320 706 224 812 140 846"
+        strokeWidth={1.2}
+        opacity={0.32}
+        {...draw(0.7, 2.6)}
+      />
+    </svg>
+  );
+}
+
 export default function HeroSection() {
   const stage = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -18,7 +51,8 @@ export default function HeroSection() {
       id="hero"
       className="grain relative overflow-hidden bg-graphite-900 pb-12 pt-32 text-white md:pb-16 md:pt-36 lg:min-h-[100svh]"
     >
-      <div className="wrap">
+      <HeroRibbon reduce={!!reduce} />
+      <div className="wrap relative z-10">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <Reveal y={12}>
