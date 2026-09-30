@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "Fratelli's Helados",
-  description: "Catering premium en food truck con helados artesanales y sodas italianas",
+  description: "Catering de helado artesanal y sodas italianas en food truck para eventos en CDMX",
   email: "fratellisheladeria16@gmail.com",
   phone: "+52 55 1234 5678",
   address: "Ciudad de México, México",
@@ -23,23 +23,23 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const TRUST_POINTS = [
-  { title: "Más de una década", description: "de experiencia en catering premium." },
+  { title: "Más de una década", description: "sirviendo helado y sodas en eventos." },
   { title: "Equipo propio", description: "capacitado en montaje y servicio." },
-  { title: "Menús curados", description: "sabores artesanales y sodas italianas." },
+  { title: "Sabores de temporada", description: "que rotan según la estación y tu evento." },
 ] as const;
 
 export const SERVICES = [
   {
-    title: "Barra de helado artesanal",
-    description: "Selección curada de sabores clásicos y de temporada, servidos al momento.",
+    title: "Barra de helado",
+    description: "Sabores clásicos y de temporada, servidos al momento.",
   },
   {
-    title: "Soda fountain premium",
-    description: "Sodas italianas, frappés y bebidas personalizadas con mixología sin alcohol.",
+    title: "Soda fountain",
+    description: "Sodas italianas, frappés y bebidas a tu gusto, con mixología sin alcohol.",
   },
   {
-    title: "Experiencia a medida",
-    description: "Montaje elegante, branding discreto y atención que eleva tu evento.",
+    title: "Montaje a medida",
+    description: "Montaje discreto que respeta la estética de tu evento, con branding sutil y atención durante todo el servicio.",
   },
 ] as const;
 
@@ -47,7 +47,7 @@ export const EVENT_TYPES = [
   "Bodas boutique y bodas destino",
   "Eventos corporativos y lanzamientos",
   "Cumpleaños y celebraciones privadas",
-  "Experiencias VIP y activaciones de marca",
+  "Activaciones de marca y eventos VIP",
 ] as const;
 
 export const FLAVOR_HIGHLIGHTS = [
@@ -59,13 +59,13 @@ export const FLAVOR_HIGHLIGHTS = [
   },
   {
     name: "Vainilla",
-    description: "Aromática y elegante.",
+    description: "Aromática y de sabor limpio.",
     image: "/images/flavors/vainilla.png",
     tint: "#817D6E",
   },
   {
     name: "Fresa",
-    description: "Fruta fresca, textura cremosa.",
+    description: "Fruta fresca, sabor directo.",
     image: "/images/flavors/fresa.png",
     tint: "#7D6D70",
   },
@@ -113,7 +113,7 @@ export const TESTIMONIALS = [
     quote:
       "Nuestros asistentes quedaron encantados. La puesta en escena fue premium y cuidada.",
     name: "Foro Pegaso",
-    event: "Experiencia para invitados",
+    event: "Evento para invitados",
   },
 ] as const;
 
@@ -128,17 +128,17 @@ export const GALLERY_IMAGES = [
 
 export const ABOUT_HIGHLIGHTS = [
   {
-    title: "Origen artesanal",
+    title: "Recetas propias",
     description:
-      "Nacimos con la obsesión por el helado auténtico: recetas propias, ingredientes reales y un servicio impecable.",
+      "Nacimos con la obsesión por el helado auténtico: recetas propias e ingredientes reales.",
   },
   {
-    title: "Catering con carácter",
+    title: "Un truck que se integra",
     description:
-      "Nuestro food truck es elegante, móvil y pensado para integrarse con la estética de tu evento.",
+      "Nuestro food truck es móvil y está pensado para integrarse con la estética de tu evento.",
   },
   {
-    title: "Calidad que se percibe",
+    title: "Lotes pequeños",
     description:
       "Cada sabor se elabora en lotes pequeños para preservar textura, aroma y frescura.",
   },

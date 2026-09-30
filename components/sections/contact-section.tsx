@@ -132,7 +132,7 @@ export default function ContactSection() {
           className="display mt-6 max-w-6xl text-[clamp(2.2rem,4.6vw,4.25rem)] text-graphite-900"
           lines={[
             "Arma tu barra.",
-            <span key="b" className="font-semibold text-brand-accent">Hagamos que sea inolvidable.</span>,
+            <span key="b" className="font-semibold text-brand-accent">Nosotros la servimos.</span>,
           ]}
         />
         <Reveal delay={0.1}>

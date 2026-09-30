@@ -15,9 +15,8 @@ export default function AboutSection() {
         <MaskLines
           className="display mt-6 max-w-5xl text-[clamp(2.2rem,5vw,4.4rem)] text-graphite-900"
           lines={[
-            "Una heladería artesanal",
-            "convertida en",
-            <span key="x" className="font-semibold text-brand-accent">experiencia de catering.</span>,
+            "Nació como heladería.",
+            <span key="x" className="font-semibold text-brand-accent">Hoy llega a tu evento.</span>,
           ]}
         />
 
@@ -45,10 +44,9 @@ export default function AboutSection() {
           <div className="lg:col-span-6 lg:col-start-7">
             <Reveal>
               <p className="text-lg leading-relaxed text-graphite-700 md:text-xl">
-                Fratelli&apos;s nació en CDMX con una visión clara: crear helados artesanales
-                con la misma dedicación que un chef dedica a su menú. Hoy llevamos esa pasión
-                a eventos exclusivos con un food truck elegante, servicio impecable y sabores
-                que se recuerdan.
+                Fratelli&apos;s nació en CDMX con una idea clara: hacer helado con la
+                dedicación con la que un chef arma su menú. Hoy esa idea viaja en un food truck
+                y sirve en bodas, eventos de empresa y celebraciones privadas.
               </p>
             </Reveal>
 

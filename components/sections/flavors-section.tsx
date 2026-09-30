@@ -21,17 +21,17 @@ export default function FlavorsSection() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <Reveal y={12}>
-              <p className="eyebrow text-brand-primary">Sabores emblemáticos</p>
+              <p className="eyebrow text-brand-primary">Sabores</p>
             </Reveal>
             <MaskLines
               className="display mt-6 text-[clamp(2.1rem,4.1vw,3.7rem)]"
-              lines={["Helados artesanales", "creados para sorprender."]}
+              lines={["Seis clásicos", "y cuatro de temporada."]}
             />
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
             <p className="text-lg leading-relaxed text-white/75">
-              Curamos un menú de sabores clásicos y propuestas de temporada que combinan
-              cremosidad, balance y frescura.
+              Recorre la lista para ver cada envase. Añade los que imaginas y llegan directo a
+              tu cotización.
             </p>
           </Reveal>
         </div>

@@ -63,13 +63,12 @@ export default function GallerySection() {
             </Reveal>
             <MaskLines
               className="display mt-6 text-[clamp(2.1rem,4.1vw,3.7rem)]"
-              lines={["Eventos que inspiran", "el próximo."]}
+              lines={["Así se ve", "en los eventos."]}
             />
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
             <p className="text-lg leading-relaxed text-white/75">
-              Celebraciones con una atmósfera cálida, montajes cuidados y helados que se
-              convierten en conversación.
+              Vasos, conos, sodas y el truck en pleno servicio.
             </p>
           </Reveal>
         </div>

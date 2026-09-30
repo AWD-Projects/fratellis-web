@@ -15,12 +15,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fratellishelados.com"),
-  title: "Fratelli's Helados | Catering premium en food truck",
+  title: "Fratelli's Helados | Helado artesanal y sodas italianas para eventos en CDMX",
   description:
-    "Helados artesanales y sodas italianas desde nuestro food truck premium. Catering para bodas, eventos corporativos y celebraciones en CDMX con más de una década de experiencia.",
+    "Food truck de helado artesanal y sodas italianas para bodas, eventos de empresa y fiestas privadas en CDMX. Más de una década de experiencia. Cotiza tu evento.",
   keywords: [
     "helado artesanal",
-    "catering premium",
+    "catering de helados",
     "food truck CDMX",
     "sodas italianas",
     "eventos corporativos",
@@ -31,18 +31,18 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Fratelli's Helados | Catering premium en food truck",
+    title: "Fratelli's Helados | Helado artesanal y sodas italianas para eventos en CDMX",
     description:
-      "Experiencias de helado artesanal y sodas italianas para eventos inolvidables. Food truck elegante y servicio experto.",
+      "Barra de helado y soda fountain en un food truck negro y dorado, con equipo propio, para tu evento en CDMX.",
     type: "website",
     locale: "es_MX",
     images: ["/images/hero/hero.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fratelli's Helados | Catering premium en food truck",
+    title: "Fratelli's Helados | Helado artesanal y sodas italianas para eventos en CDMX",
     description:
-      "Helado artesanal, sodas italianas y un food truck elegante para eventos en CDMX.",
+      "Barra de helado y soda fountain en food truck para bodas, empresas y fiestas privadas en CDMX.",
     images: ["/images/hero/hero.png"],
   },
 };

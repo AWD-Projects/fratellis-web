@@ -16,17 +16,17 @@ export default function CateringSection() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <Reveal y={12}>
-              <p className="eyebrow text-brand-accent">Catering premium</p>
+              <p className="eyebrow text-brand-accent">Catering de helados y sodas</p>
             </Reveal>
             <MaskLines
               className="display mt-6 text-[clamp(2.1rem,4.1vw,3.7rem)] text-graphite-900"
-              lines={["Un servicio diseñado", "para eventos con estilo."]}
+              lines={["Tú eliges qué se sirve.", "Nosotros hacemos el resto."]}
             />
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
             <p className="text-lg leading-relaxed text-graphite-700">
-              Diseñamos cada servicio como una experiencia: helado artesanal, soda fountain y
-              una puesta en escena que se integra con tu evento.
+              Barra de helado, soda fountain o ambas: armamos el servicio según tu evento y lo
+              ajustamos contigo en la propuesta.
             </p>
           </Reveal>
         </div>
@@ -128,7 +128,7 @@ export default function CateringSection() {
 
           <div className="lg:col-span-8">
             <Reveal y={12}>
-              <p className="eyebrow text-brand-accent">Perfecto para eventos como</p>
+              <p className="eyebrow text-brand-accent">Eventos que atendemos</p>
             </Reveal>
             <ul className="mt-6 border-t border-graphite-900/20">
               {EVENT_TYPES.map((event, i) => {

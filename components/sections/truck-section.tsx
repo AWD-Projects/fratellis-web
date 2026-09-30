@@ -4,9 +4,9 @@ import Image from "next/image";
 import { MaskLines, Reveal } from "@/components/ui/motion";
 
 const TRUCK_POINTS = [
-  { label: "Acabados", text: "Food truck premium con acabados impecables." },
+  { label: "Diseño", text: "Carrocería negra con el logotipo en dorado." },
   { label: "Montaje", text: "Rápido y discreto para cualquier venue." },
-  { label: "Ambientación", text: "Iluminación cálida y señalización elegante." },
+  { label: "Ambientación", text: "Iluminación cálida y señalización con la marca." },
   { label: "Servicio", text: "Operado por personal capacitado en hospitalidad." },
 ];
 
@@ -36,16 +36,16 @@ export default function TruckSection() {
 
           <div className="lg:col-span-6 lg:pl-10">
             <Reveal y={12}>
-              <p className="eyebrow text-brand-accent">La experiencia food truck</p>
+              <p className="eyebrow text-brand-accent">El food truck</p>
             </Reveal>
             <MaskLines
               className="display mt-6 text-[clamp(2rem,3.7vw,3.3rem)] text-graphite-900"
-              lines={["Un punto focal", "elegante que eleva", "la atmósfera."]}
+              lines={["Un punto de atención", "en negro y dorado."]}
             />
             <Reveal delay={0.1}>
               <p className="mt-8 text-lg leading-relaxed text-graphite-700">
-                Nuestro food truck no solo entrega helado: crea una experiencia visual. Diseñado
-                para integrarse con bodas, jardines, rooftops y eventos de marca.
+                Más que entregar helado, el truck se vuelve parte de la decoración. Se integra con
+                bodas, jardines, rooftops y eventos de marca.
               </p>
             </Reveal>
 
@@ -64,7 +64,7 @@ export default function TruckSection() {
 
             <Reveal delay={0.1}>
               <p className="mt-8 text-sm font-semibold tracking-wide text-graphite-900">
-                Experiencia mobile signature <span className="mx-2 text-brand-primary">·</span> Logística flexible en CDMX
+                Logística flexible en CDMX
               </p>
             </Reveal>
           </div>

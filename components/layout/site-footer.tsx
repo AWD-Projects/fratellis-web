@@ -21,8 +21,7 @@ export default function SiteFooter() {
               />
             </div>
             <p className="mt-8 max-w-sm text-[0.95rem] leading-relaxed text-white/75">
-              Food truck premium con helados artesanales y sodas italianas para
-              eventos memorables en CDMX.
+              Helado artesanal y sodas italianas en food truck, para eventos en CDMX.
             </p>
           </div>
 
@@ -78,7 +77,7 @@ export default function SiteFooter() {
 
         <div className="mt-16 flex flex-col gap-2 border-t border-white/15 pt-6 text-sm text-white/65 md:flex-row md:items-center md:justify-between">
           <span>© 2026 Fratelli&apos;s Helados</span>
-          <span>Catering premium para eventos con estilo.</span>
+          <span>Fuente de sodas &amp; helados.</span>
           <a
             href="https://www.amoxtli.tech"
             target="_blank"

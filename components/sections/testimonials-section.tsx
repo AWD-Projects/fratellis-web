@@ -12,7 +12,7 @@ export default function TestimonialsSection() {
         </Reveal>
         <MaskLines
           className="display mt-6 max-w-4xl text-[clamp(2.2rem,5vw,4.5rem)] text-graphite-900"
-          lines={["Historias reales,", "momentos inolvidables."]}
+          lines={["Lo que dicen quienes", "nos contrataron."]}
         />
 
         <ul className="mt-16 border-t border-graphite-900/25 md:mt-24">
